@@ -1,9 +1,10 @@
+import React from 'react';
 import { Link } from 'react-router-dom';
 import SectionHeader from '../../components/SectionHeader/SectionHeader';
 import { useInView } from '../../hooks/useInView';
 import './About.css';
 
-function About() {
+const About: React.FC = () => {
   const [storyRef, storyInView] = useInView();
   const [valuesRef, valuesInView] = useInView();
   const [teamRef, teamInView] = useInView();

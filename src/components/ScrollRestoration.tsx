@@ -1,7 +1,7 @@
-import { useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 
-function ScrollRestoration() {
+const ScrollRestoration: React.FC = () => {
   const { pathname } = useLocation();
 
   useEffect(() => {

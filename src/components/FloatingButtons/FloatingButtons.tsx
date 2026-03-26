@@ -1,6 +1,7 @@
+import React from 'react';
 import './FloatingButtons.css';
 
-function FloatingButtons() {
+const FloatingButtons: React.FC = () => {
   const phoneNumber = '919950889370';
   const whatsappMessage = encodeURIComponent('Hello! I am interested in your bridal collection. Please share more details.');
 

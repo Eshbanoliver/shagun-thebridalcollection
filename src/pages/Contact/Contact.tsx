@@ -1,20 +1,28 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 import SectionHeader from '../../components/SectionHeader/SectionHeader';
 import { useInView } from '../../hooks/useInView';
 import './Contact.css';
 
-function Contact() {
+interface ContactFormData {
+  name: string;
+  email: string;
+  phone: string;
+  service: string;
+  message: string;
+}
+
+const Contact: React.FC = () => {
   const [ref, inView] = useInView();
-  const [formData, setFormData] = useState({
+  const [formData, setFormData] = useState<ContactFormData>({
     name: '', email: '', phone: '', service: '', message: ''
   });
   const [submitted, setSubmitted] = useState(false);
 
-  const handleChange = (e) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     setSubmitted(true);
     setTimeout(() => setSubmitted(false), 4000);
@@ -172,7 +180,7 @@ function Contact() {
                   value={formData.message}
                   onChange={handleChange}
                   placeholder="Tell us about your requirements, preferred date, etc."
-                  rows="5"
+                  rows={5}
                   required
                 ></textarea>
               </div>

@@ -1,7 +1,7 @@
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState, RefObject } from 'react';
 
-export function useInView(options = {}) {
-  const ref = useRef(null);
+export function useInView(options: IntersectionObserverInit = {}): [RefObject<HTMLDivElement | null>, boolean] {
+  const ref = useRef<HTMLDivElement>(null);
   const [isInView, setIsInView] = useState(false);
 
   useEffect(() => {
@@ -20,7 +20,7 @@ export function useInView(options = {}) {
 
     observer.observe(element);
     return () => observer.disconnect();
-  }, []);
+  }, [options]);
 
   return [ref, isInView];
 }

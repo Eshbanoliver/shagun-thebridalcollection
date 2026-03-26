@@ -1,6 +1,14 @@
+import React from 'react';
 import './SectionHeader.css';
 
-function SectionHeader({ subtitle, title, description, light = false }) {
+interface SectionHeaderProps {
+  subtitle?: string;
+  title: string;
+  description?: string;
+  light?: boolean;
+}
+
+const SectionHeader: React.FC<SectionHeaderProps> = ({ subtitle, title, description, light = false }) => {
   return (
     <div className={`section-header ${light ? 'section-header--light' : ''}`}>
       {subtitle && <p className="section-subtitle">{subtitle}</p>}

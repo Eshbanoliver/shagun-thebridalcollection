@@ -1,9 +1,10 @@
+import React from 'react';
 import { Link } from 'react-router-dom';
 import SectionHeader from '../../components/SectionHeader/SectionHeader';
 import { useInView } from '../../hooks/useInView';
 import './Services.css';
 
-function Services() {
+const Services: React.FC = () => {
   const [servRef, servInView] = useInView();
   const [processRef, processInView] = useInView();
 

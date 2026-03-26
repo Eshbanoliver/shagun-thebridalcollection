@@ -11,7 +11,7 @@ import FAQ from './pages/FAQ/FAQ';
 import Contact from './pages/Contact/Contact';
 import './App.css';
 
-function App() {
+function App(): React.JSX.Element {
   return (
     <Router>
       <ScrollRestoration />

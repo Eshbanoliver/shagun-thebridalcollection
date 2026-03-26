@@ -1,10 +1,17 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import SectionHeader from '../../components/SectionHeader/SectionHeader';
 import { useInView } from '../../hooks/useInView';
 import './FAQ.css';
 
-function FAQItem({ question, answer, isOpen, onToggle }) {
+interface FAQItemProps {
+  question: string;
+  answer: string;
+  isOpen: boolean;
+  onToggle: () => void;
+}
+
+const FAQItem: React.FC<FAQItemProps> = ({ question, answer, isOpen, onToggle }) => {
   return (
     <div className={`faq-item ${isOpen ? 'faq-item--open' : ''}`}>
       <button className="faq-item__question" onClick={onToggle} aria-expanded={isOpen}>
@@ -20,7 +27,7 @@ function FAQItem({ question, answer, isOpen, onToggle }) {
   );
 }
 
-function FAQ() {
+const FAQ: React.FC = () => {
   const [openIndex, setOpenIndex] = useState(0);
   const [ref, inView] = useInView();
 

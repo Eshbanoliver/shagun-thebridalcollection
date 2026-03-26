@@ -1,7 +1,8 @@
+import React from 'react';
 import { Link } from 'react-router-dom';
 import './Footer.css';
 
-function Footer() {
+const Footer: React.FC = () => {
   const quickLinks = [
     { path: '/', label: 'Home' },
     { path: '/about', label: 'About Us' },

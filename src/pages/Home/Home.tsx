@@ -1,3 +1,4 @@
+import React from 'react';
 import { Link } from 'react-router-dom';
 import SectionHeader from '../../components/SectionHeader/SectionHeader';
 import { useInView } from '../../hooks/useInView';
@@ -7,7 +8,7 @@ import './Home.css';
    SUB-COMPONENTS
    ================================================ */
 
-function HeroSection() {
+const HeroSection: React.FC = () => {
   return (
     <section className="hero" id="hero-section">
       <div className="hero__bg">
@@ -52,7 +53,7 @@ function HeroSection() {
   );
 }
 
-function AboutPreview() {
+const AboutPreview: React.FC = () => {
   const [ref, inView] = useInView();
   return (
     <section className="section section-gradient about-preview" id="about-preview" ref={ref}>
@@ -93,7 +94,7 @@ function AboutPreview() {
   );
 }
 
-function MetricsSection() {
+const MetricsSection: React.FC = () => {
   const [ref, inView] = useInView();
   const metrics = [
     { number: '2000+', label: 'Happy Brides', icon: '💍' },
@@ -120,7 +121,7 @@ function MetricsSection() {
   );
 }
 
-function ServicesPreview() {
+const ServicesPreview: React.FC = () => {
   const [ref, inView] = useInView();
   const services = [
     {
@@ -176,7 +177,7 @@ function ServicesPreview() {
   );
 }
 
-function MissionVision() {
+const MissionVision: React.FC = () => {
   const [ref, inView] = useInView();
   return (
     <section className="section section-gradient mission-vision" id="mission-vision" ref={ref}>
@@ -214,7 +215,7 @@ function MissionVision() {
   );
 }
 
-function CoreValues() {
+const CoreValues: React.FC = () => {
   const [ref, inView] = useInView();
   const values = [
     { icon: '💎', title: 'Quality', desc: 'Only the finest fabrics and craftsmanship in every piece.' },
@@ -247,7 +248,7 @@ function CoreValues() {
   );
 }
 
-function WhyChooseUs() {
+const WhyChooseUs: React.FC = () => {
   const [ref, inView] = useInView();
   const reasons = [
     { icon: '🏆', title: 'Trusted Brand', desc: 'Over a decade of creating beautiful bridal moments in Udaipur.' },
@@ -280,7 +281,7 @@ function WhyChooseUs() {
   );
 }
 
-function CTASection() {
+const CTASection: React.FC = () => {
   return (
     <section className="section cta-section" id="cta-section">
       <div className="cta-section__bg">
@@ -308,7 +309,7 @@ function CTASection() {
   );
 }
 
-function Testimonials() {
+const Testimonials: React.FC = () => {
   const [ref, inView] = useInView();
   const testimonials = [
     {
@@ -365,7 +366,7 @@ function Testimonials() {
   );
 }
 
-function FAQPreview() {
+const FAQPreview: React.FC = () => {
   const [ref, inView] = useInView();
   const faqs = [
     {
@@ -414,7 +415,7 @@ function FAQPreview() {
 /* ================================================
    HOME PAGE
    ================================================ */
-function Home() {
+const Home: React.FC = () => {
   return (
     <>
       <HeroSection />
