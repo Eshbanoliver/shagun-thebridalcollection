@@ -1,0 +1,11 @@
+.section-header--light .section-title {
+  color: var(--white);
+}
+
+.section-header--light .section-subtitle {
+  color: var(--gold);
+}
+
+.section-header--light .section-description {
+  color: rgba(255, 255, 255, 0.7);
+}
