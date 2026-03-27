@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Sparkles, Phone, Mail, ArrowRight, MapPin } from 'lucide-react';
+import { Sparkles, Phone, Mail, ArrowRight, MapPin, Heart, Share2 } from 'lucide-react';
 import './Footer.css';
 
 const Footer: React.FC = () => {
@@ -47,10 +47,16 @@ const Footer: React.FC = () => {
                 and luxury together to make your special day truly unforgettable.
               </p>
               <div className="footer__social">
-                <a href="tel:9950889370" className="footer__social-link" aria-label="Call us" id="footer-call">
+                <a href="https://instagram.com" className="footer__social-link" aria-label="Instagram" target="_blank" rel="noopener">
+                  <Heart size={18} />
+                </a>
+                <a href="https://facebook.com" className="footer__social-link" aria-label="Facebook" target="_blank" rel="noopener">
+                  <Share2 size={18} />
+                </a>
+                <a href="tel:9950889370" className="footer__social-link" aria-label="Call us">
                   <Phone size={18} />
                 </a>
-                <a href="mailto:SHAGUNTHEBRIDALCOLLECTION@GMAIL.COM" className="footer__social-link" aria-label="Email us" id="footer-email">
+                <a href="mailto:SHAGUNTHEBRIDALCOLLECTION@GMAIL.COM" className="footer__social-link" aria-label="Email us">
                   <Mail size={18} />
                 </a>
               </div>
@@ -120,15 +126,22 @@ const Footer: React.FC = () => {
 
       {/* Bottom Bar */}
       <div className="footer__bottom">
-        <div className="container">
+        <div className="container footer__bottom-inner">
           <p className="footer__copyright">
-            ©️ Copyright 2026 | Shagun THE BRIDAL COLLECTION | All Rights Reserved | Powered by{' '}
+            © {new Date().getFullYear()} | <strong>Shagun THE BRIDAL COLLECTION</strong> | All Rights Reserved
+          </p>
+          <p className="footer__powered">
+            Powered by{' '}
             <a href="https://shapesway.in" target="_blank" rel="noopener" className="footer__powered-link">
-              Shapesway Technologies Pvt. Ltd.
+              Shapesway Technologies
             </a>
           </p>
         </div>
       </div>
+      
+      {/* Decorative Elements */}
+      <div className="footer__decor footer__decor--1"></div>
+      <div className="footer__decor footer__decor--2"></div>
     </footer>
   );
 }
