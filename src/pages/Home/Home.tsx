@@ -373,33 +373,41 @@ const CoreValues: React.FC = () => {
 
 
 const CTASection: React.FC = () => {
+  const [ref, inView] = useInView();
   return (
-    <section className="section cta-section" id="cta-section">
+    <section className="section cta-section" id="cta-section" ref={ref}>
       <div className="cta-section__bg">
+        <img src="/hero/jewelry.png" alt="Premium Bridal Fashion" className="cta-section__bg-img" loading="lazy" />
         <div className="cta-section__overlay"></div>
+        <div className="cta-section__glow cta-section__glow--1"></div>
+        <div className="cta-section__glow cta-section__glow--2"></div>
+        <div className="cta-section__particles"></div>
       </div>
-      <div className="container cta-section__content">
-        <span className="cta-section__badge">
-          <Sparkles size={12} className="inline-block mr-2" />
-          Limited Period Collection
-          <Sparkles size={12} className="inline-block ml-2" />
-        </span>
-        <h2 className="cta-section__title">
-          Your Dream Bridal Look<br />Awaits You
-        </h2>
-        <p className="cta-section__desc">
-          Book a private appointment and explore our exclusive collection in a luxurious, 
-          stress-free environment. Let us help you find the one.
-        </p>
-        <div className="cta-section__actions">
-          <Link to="/contact" className="btn btn-gold" id="cta-book-btn">
-            <Calendar size={18} />
-            Book Your Appointment
-          </Link>
-          <a href="tel:9950889370" className="btn btn-secondary" id="cta-call-btn">
-            <Phone size={18} />
-            Call: 9950889370
-          </a>
+      <div className={`container cta-section__content ${inView ? 'animate-fade-in-up' : 'opacity-0'}`}>
+        <div className="cta-section__glass-box">
+          <span className="cta-section__badge">
+            <Sparkles size={12} className="inline-block mr-2" />
+            Limited Period Collection
+            <Sparkles size={12} className="inline-block ml-2" />
+          </span>
+          <h2 className="cta-section__title">
+            Your Dream Bridal Look<br />
+            <span className="cta-section__title-accent">Awaits You</span>
+          </h2>
+          <p className="cta-section__desc">
+            Book a private appointment and explore our exclusive collection in a luxurious, 
+            stress-free environment. Let us help you find the one.
+          </p>
+          <div className="cta-section__actions">
+            <Link to="/contact" className="btn btn-gold cta-section__btn-primary" id="cta-book-btn">
+              <Calendar size={18} />
+              Book Your Appointment
+            </Link>
+            <a href="tel:9950889370" className="btn btn-outline cta-section__btn-secondary" id="cta-call-btn">
+              <Phone size={18} />
+              Call: 9950889370
+            </a>
+          </div>
         </div>
       </div>
     </section>
