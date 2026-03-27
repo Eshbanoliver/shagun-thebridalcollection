@@ -445,26 +445,32 @@ const Testimonials: React.FC = () => {
           title="What Our Brides Say"
           description="Hear from the beautiful brides who trusted us with their most special day."
         />
-        <div className={`testimonials__grid ${inView ? 'animate-fade-in-up' : 'opacity-0'}`}>
-          {testimonials.map((t, i) => (
-            <div className="testimonials__card glass-card" key={i}>
-              <div className="testimonials__stars">
-                {[...Array(t.rating)].map((_, j) => (
-                  <Star key={j} size={16} fill="var(--gold)" color="var(--gold)" className="inline-block mr-1" />
+        <div className={`testimonials__scroll-wrapper ${inView ? 'animate-fade-in-up' : 'opacity-0'}`}>
+          <div className="testimonials__marquee">
+            {[...Array(2)].map((_, groupIndex) => (
+              <div className="testimonials__marquee-group" aria-hidden={groupIndex === 1} key={groupIndex}>
+                {[...testimonials, ...testimonials].map((t, i) => (
+                  <div className="testimonials__card glass-card" key={`g${groupIndex}-${i}`}>
+                    <div className="testimonials__stars">
+                      {[...Array(t.rating)].map((_, j) => (
+                        <Star key={j} size={16} fill="var(--gold)" color="var(--gold)" className="inline-block mr-1" />
+                      ))}
+                    </div>
+                    <p className="testimonials__text">"{t.text}"</p>
+                    <div className="testimonials__author">
+                      <div className="testimonials__avatar">
+                        {t.name.charAt(0)}
+                      </div>
+                      <div>
+                        <h4 className="testimonials__name">{t.name}</h4>
+                        <p className="testimonials__role">{t.role}</p>
+                      </div>
+                    </div>
+                  </div>
                 ))}
               </div>
-              <p className="testimonials__text">"{t.text}"</p>
-              <div className="testimonials__author">
-                <div className="testimonials__avatar">
-                  {t.name.charAt(0)}
-                </div>
-                <div>
-                  <h4 className="testimonials__name">{t.name}</h4>
-                  <p className="testimonials__role">{t.role}</p>
-                </div>
-              </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
       </div>
     </section>

@@ -961,16 +961,59 @@
 /* ========================================
    TESTIMONIALS
    ======================================== */
-.testimonials__grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
+.testimonials {
+  position: relative;
+  overflow: hidden;
+  padding-bottom: 40px;
+}
+
+.testimonials__scroll-wrapper {
+  mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+  -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+  width: 100vw;
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+  padding: 20px 0;
+}
+
+.testimonials__marquee {
+  display: flex;
+  width: max-content;
   gap: 30px;
 }
 
+.testimonials__marquee-group {
+  display: flex;
+  gap: 30px;
+  animation: scrollMarquee 35s linear infinite;
+}
+
+.testimonials__marquee:hover .testimonials__marquee-group {
+  animation-play-state: paused;
+}
+
+@keyframes scrollMarquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(calc(-100% - 30px)); }
+}
+
 .testimonials__card {
+  width: 420px;
+  flex-shrink: 0;
   padding: 36px 30px;
   background: rgba(255, 255, 255, 0.5);
   border: 1px solid rgba(112, 112, 112, 0.08);
+  border-radius: var(--radius-lg);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.testimonials__card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 40px rgba(0,0,0,0.1);
 }
 
 .testimonials__stars {
@@ -1084,8 +1127,7 @@
     grid-template-columns: repeat(2, 1fr);
   }
 
-  .services-preview__grid,
-  .testimonials__grid {
+  .services-preview__grid {
     grid-template-columns: repeat(2, 1fr);
   }
 
@@ -1095,10 +1137,8 @@
     margin: 0 auto;
   }
 
-  .testimonials__grid > :last-child {
-    grid-column: 1 / -1;
-    max-width: 400px;
-    margin: 0 auto;
+  .testimonials__card {
+    width: 350px;
   }
 }
 
@@ -1145,7 +1185,6 @@
   }
 
   .services-preview__grid,
-  .testimonials__grid,
   .why-choose__masonry,
   .core-values__grid {
     grid-template-columns: 1fr;
@@ -1172,10 +1211,14 @@
     padding-top: 40px;
   }
 
-  .services-preview__grid > :last-child,
-  .testimonials__grid > :last-child {
+  .services-preview__grid > :last-child {
     grid-column: auto;
     max-width: none;
+  }
+
+  .testimonials__card {
+    width: 300px;
+    padding: 24px 20px;
   }
 
   .services-preview__card {
