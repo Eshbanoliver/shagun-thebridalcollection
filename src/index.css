@@ -12,9 +12,9 @@
   --cherry-red-glow: rgba(252, 207, 247, 0.3);
 
   /* Secondary Colors */
-  --brown: #707070;
-  --brown-light: #919191;
-  --brown-dark: #4f4f4f;
+  --brown: #a6a6a6;
+  --brown-light: #c0c0c0;
+  --brown-dark: #8c8c8c;
 
   /* Gold Accents - Keep as they provide luxury feel, but maybe desaturate slightly if needed */
   --gold: #D4A853;
