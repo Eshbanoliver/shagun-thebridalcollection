@@ -215,19 +215,22 @@ const ServicesPreview: React.FC = () => {
     {
       title: 'Wedding Lehenga & Paushak',
       desc: 'Exquisite bridal lehengas and traditional paushak with intricate embroidery, handcrafted for your special day.',
-      icon: <Stars size={28} />,
+      icon: <Stars size={24} />,
+      image: '/services/lehenga.png',
       gradient: 'linear-gradient(135deg, var(--cherry-red) 0%, var(--cherry-red-dark) 100%)',
     },
     {
       title: 'Pre-Wed Gowns',
       desc: 'Stunning designer gowns for pre-wedding photoshoots and celebrations — effortlessly elegant and glamorous.',
-      icon: <Sparkles size={28} />,
+      icon: <Sparkles size={24} />,
+      image: '/services/gowns.png',
       gradient: 'linear-gradient(135deg, var(--brown) 0%, var(--brown-dark) 100%)',
     },
     {
       title: 'Bridal Jewellery',
       desc: 'Complete your bridal look with our curated collection of traditional and contemporary jewellery pieces.',
-      icon: <Gem size={28} />,
+      icon: <Gem size={24} />,
+      image: '/services/jewellery.png',
       gradient: 'linear-gradient(135deg, #D4A853 0%, #B08A3A 100%)',
     },
   ];
@@ -242,16 +245,24 @@ const ServicesPreview: React.FC = () => {
         />
         <div className={`services-preview__grid ${inView ? 'animate-fade-in-up' : 'opacity-0'}`}>
           {services.map((service, i) => (
-            <div className="services-preview__card glass-card" key={i} style={{ animationDelay: `${i * 0.15}s` }}>
-              <div className="services-preview__card-icon" style={{ background: service.gradient }}>
-                <span>{service.icon}</span>
+            <div className="services-preview__card" key={i} style={{ animationDelay: `${i * 0.15}s` }}>
+              <img src={service.image} alt={service.title} className="services-preview__img" loading="lazy" />
+              <div className="services-preview__overlay"></div>
+              
+              <div className="services-preview__content">
+                <div className="services-preview__card-icon" style={{ background: service.gradient }}>
+                  {service.icon}
+                </div>
+                <h3 className="services-preview__card-title">{service.title}</h3>
+                
+                <div className="services-preview__hidden-content">
+                  <p className="services-preview__card-desc">{service.desc}</p>
+                  <Link to="/services" className="services-preview__card-link">
+                    View Collection
+                    <ArrowRight size={16} />
+                  </Link>
+                </div>
               </div>
-              <h3 className="services-preview__card-title">{service.title}</h3>
-              <p className="services-preview__card-desc">{service.desc}</p>
-              <Link to="/services" className="services-preview__card-link">
-                View Collection
-                <ArrowRight size={16} />
-              </Link>
             </div>
           ))}
         </div>
