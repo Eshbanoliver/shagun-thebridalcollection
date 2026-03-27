@@ -328,12 +328,12 @@ const MissionVision: React.FC = () => {
 const CoreValues: React.FC = () => {
   const [ref, inView] = useInView();
   const values = [
-    { icon: <Droplets size={32} />, title: 'Quality', desc: 'Only the finest fabrics and craftsmanship in every piece.' },
-    { icon: <Users size={32} />, title: 'Trust', desc: 'Building lasting relationships through transparency and integrity.' },
-    { icon: <Palette size={32} />, title: 'Artistry', desc: 'Every design reflects passion, tradition, and modern aesthetics.' },
-    { icon: <Crown size={32} />, title: 'Elegance', desc: 'Timeless beauty that makes every bride feel like royalty.' },
-    { icon: <Heart size={32} />, title: 'Care', desc: 'Personalized attention to make your bridal journey special.' },
-    { icon: <Lightbulb size={32} />, title: 'Innovation', desc: 'Blending heritage with contemporary bridal fashion trends.' },
+    { icon: <Droplets size={32} />, title: 'Quality', desc: 'Only the finest fabrics and craftsmanship in every piece.', color: '#FF6B6B', glow: 'rgba(255, 107, 107, 0.3)' },
+    { icon: <Users size={32} />, title: 'Trust', desc: 'Building lasting relationships through transparency and integrity.', color: '#4ECDC4', glow: 'rgba(78, 205, 196, 0.3)' },
+    { icon: <Palette size={32} />, title: 'Artistry', desc: 'Every design reflects passion, tradition, and modern aesthetics.', color: '#9D50BB', glow: 'rgba(157, 80, 187, 0.3)' },
+    { icon: <Crown size={32} />, title: 'Elegance', desc: 'Timeless beauty that makes every bride feel like royalty.', color: '#F9D423', glow: 'rgba(249, 212, 35, 0.3)' },
+    { icon: <Heart size={32} />, title: 'Care', desc: 'Personalized attention to make your bridal journey special.', color: '#FF9F1C', glow: 'rgba(255, 159, 28, 0.3)' },
+    { icon: <Lightbulb size={32} />, title: 'Innovation', desc: 'Blending heritage with contemporary bridal fashion trends.', color: '#45B7D1', glow: 'rgba(69, 183, 209, 0.3)' },
   ];
 
   return (
@@ -346,8 +346,19 @@ const CoreValues: React.FC = () => {
         />
         <div className={`core-values__grid ${inView ? 'animate-fade-in-up' : 'opacity-0'}`}>
           {values.map((value, i) => (
-            <div className="core-values__item" key={i} style={{ animationDelay: `${i * 0.1}s` }}>
-              <span className="core-values__icon">{value.icon}</span>
+            <div 
+              className="core-values__item" 
+              key={i} 
+              style={{ 
+                animationDelay: `${i * 0.1}s`,
+                '--accent-color': value.color,
+                '--accent-glow': value.glow
+              } as React.CSSProperties}
+            >
+              <span className="core-values__index">0{i + 1}</span>
+              <div className="core-values__icon-wrapper">
+                {value.icon}
+              </div>
               <h4 className="core-values__title">{value.title}</h4>
               <p className="core-values__desc">{value.desc}</p>
             </div>
@@ -361,12 +372,12 @@ const CoreValues: React.FC = () => {
 const WhyChooseUs: React.FC = () => {
   const [ref, inView] = useInView();
   const reasons = [
-    { icon: <Trophy size={32} />, title: 'Trusted Brand', desc: 'Over a decade of creating beautiful bridal moments in Udaipur.' },
-    { icon: <CheckCircle2 size={32} />, title: 'Rent & Sale', desc: 'Flexible options to fit every budget — rent or own your dream outfit.' },
-    { icon: <Package size={32} />, title: 'Complete Package', desc: 'Lehengas, gowns, paushak, and jewellery — everything under one roof.' },
-    { icon: <IndianRupee size={32} />, title: 'Best Value', desc: 'Premium quality at fair prices with no hidden costs.' },
-    { icon: <Scissors size={32} />, title: 'Custom Fitting', desc: 'Expert tailoring and alterations for a perfect, personalized fit.' },
-    { icon: <Star size={32} />, title: 'VIP Experience', desc: 'Personal styling assistance and a luxurious shopping ambiance.' },
+    { icon: <Trophy size={32} />, title: 'Trusted Brand', desc: 'Over a decade of creating beautiful bridal moments in Udaipur.', color: '#FF416C', bg: 'rgba(255, 65, 108, 0.1)' },
+    { icon: <CheckCircle2 size={32} />, title: 'Rent & Sale', desc: 'Flexible options to fit every budget — rent or own your dream outfit.', color: '#11998e', bg: 'rgba(17, 153, 142, 0.1)' },
+    { icon: <Package size={32} />, title: 'Complete Package', desc: 'Lehengas, gowns, paushak, and jewellery — everything under one roof.', color: '#8E2DE2', bg: 'rgba(142, 45, 226, 0.1)' },
+    { icon: <IndianRupee size={32} />, title: 'Best Value', desc: 'Premium quality at fair prices with no hidden costs.', color: '#F7971E', bg: 'rgba(247, 151, 30, 0.1)' },
+    { icon: <Scissors size={32} />, title: 'Custom Fitting', desc: 'Expert tailoring and alterations for a perfect, personalized fit.', color: '#00B4DB', bg: 'rgba(0, 180, 219, 0.1)' },
+    { icon: <Star size={32} />, title: 'VIP Experience', desc: 'Personal styling assistance and a luxurious shopping ambiance.', color: '#D4145A', bg: 'rgba(212, 20, 90, 0.1)' },
   ];
 
   return (
@@ -380,7 +391,9 @@ const WhyChooseUs: React.FC = () => {
         <div className={`why-choose__grid ${inView ? 'animate-fade-in-up' : 'opacity-0'}`}>
           {reasons.map((reason, i) => (
             <div className="why-choose__card glass-card" key={i}>
-              <span className="why-choose__icon">{reason.icon}</span>
+              <span className="why-choose__icon" style={{ color: reason.color, background: reason.bg }}>
+                {reason.icon}
+              </span>
               <h4 className="why-choose__title">{reason.title}</h4>
               <p className="why-choose__desc">{reason.desc}</p>
             </div>
