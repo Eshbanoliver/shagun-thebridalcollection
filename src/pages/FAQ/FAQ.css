@@ -16,7 +16,7 @@
 .faq-hero__bg {
   position: absolute;
   inset: 0;
-  background: linear-gradient(135deg, #1a0808 0%, var(--brown-dark) 50%, var(--cherry-red-dark) 100%);
+  background: linear-gradient(135deg, #0d0d0d 0%, var(--brown-dark) 50%, var(--brown) 100%);
 }
 
 .faq-hero__overlay {
@@ -77,19 +77,19 @@
 .faq-item {
   background: rgba(255, 255, 255, 0.6);
   backdrop-filter: blur(10px);
-  border: 1px solid rgba(178, 34, 52, 0.06);
+  border: 1px solid rgba(112, 112, 112, 0.1);
   border-radius: var(--radius-lg);
   overflow: hidden;
   transition: all var(--transition-smooth);
 }
 
 .faq-item:hover {
-  border-color: rgba(178, 34, 52, 0.12);
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+  border-color: var(--brown-light);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
 }
 
 .faq-item--open {
-  border-color: rgba(178, 34, 52, 0.15);
+  border-color: var(--brown);
   box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
 }
 
@@ -116,8 +116,8 @@
   width: 32px;
   height: 32px;
   border-radius: var(--radius-full);
-  background: rgba(178, 34, 52, 0.08);
-  color: var(--cherry-red);
+  background: rgba(112, 112, 112, 0.08);
+  color: var(--brown);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -128,7 +128,7 @@
 }
 
 .faq-item--open .faq-item__icon {
-  background: var(--cherry-red);
+  background: var(--brown);
   color: var(--white);
 }
 
@@ -163,7 +163,7 @@
 .faq-cta__bg {
   position: absolute;
   inset: 0;
-  background: linear-gradient(135deg, var(--charcoal) 0%, var(--cherry-red-dark) 50%, var(--brown-dark) 100%);
+  background: linear-gradient(135deg, var(--charcoal) 0%, var(--brown-dark) 50%, var(--brown) 100%);
 }
 
 .faq-cta__content {

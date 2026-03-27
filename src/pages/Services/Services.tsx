@@ -14,14 +14,14 @@ const Services: React.FC = () => {
       title: 'Wedding Lehenga',
       desc: 'Exquisitely embroidered bridal lehengas featuring zardozi work, mirror embellishments, and rich fabrics. Each piece is a masterwork of traditional Indian craftsmanship designed to make you the center of attention.',
       features: ['Handcrafted Embroidery', 'Premium Fabrics', 'Custom Fitting', 'Rent & Sale Options'],
-      gradient: 'linear-gradient(135deg, #B22234 0%, #8B1A29 100%)',
+      gradient: 'linear-gradient(135deg, var(--cherry-red) 0%, var(--cherry-red-dark) 100%)',
     },
     {
       icon: '🪄',
       title: 'Paushak Collection',
       desc: 'Traditional Rajasthani paushak sets that honor cultural heritage while embracing modern elegance. Perfect for the bride who wants to celebrate tradition with grace and grandeur.',
       features: ['Traditional Designs', 'Rich Color Palette', 'Heritage Craftsmanship', 'Matching Accessories'],
-      gradient: 'linear-gradient(135deg, #6B3A2A 0%, #4A2518 100%)',
+      gradient: 'linear-gradient(135deg, var(--brown) 0%, var(--brown-dark) 100%)',
     },
     {
       icon: '✨',
@@ -35,7 +35,7 @@ const Services: React.FC = () => {
       title: 'Bridal Jewellery',
       desc: 'Complete your bridal ensemble with our curated collection of traditional kundan, polki, and contemporary jewellery sets. From maang tikka to payal — everything you need.',
       features: ['Kundan & Polki Sets', 'Complete Bridal Sets', 'Matching Ensemble Options', 'Rent & Purchase'],
-      gradient: 'linear-gradient(135deg, #B22234 0%, #D4A853 100%)',
+      gradient: 'linear-gradient(135deg, var(--cherry-red) 0%, var(--gold) 100%)',
     },
   ];
 

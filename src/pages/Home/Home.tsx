@@ -128,13 +128,13 @@ const ServicesPreview: React.FC = () => {
       title: 'Wedding Lehenga & Paushak',
       desc: 'Exquisite bridal lehengas and traditional paushak with intricate embroidery, handcrafted for your special day.',
       icon: '👰',
-      gradient: 'linear-gradient(135deg, #B22234 0%, #8B1A29 100%)',
+      gradient: 'linear-gradient(135deg, var(--cherry-red) 0%, var(--cherry-red-dark) 100%)',
     },
     {
       title: 'Pre-Wed Gowns',
       desc: 'Stunning designer gowns for pre-wedding photoshoots and celebrations — effortlessly elegant and glamorous.',
       icon: '✨',
-      gradient: 'linear-gradient(135deg, #6B3A2A 0%, #4A2518 100%)',
+      gradient: 'linear-gradient(135deg, var(--brown) 0%, var(--brown-dark) 100%)',
     },
     {
       title: 'Bridal Jewellery',

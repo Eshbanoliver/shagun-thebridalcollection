@@ -6,26 +6,26 @@
 /* CSS Custom Properties */
 :root {
   /* Primary Colors */
-  --cherry-red: #B22234;
-  --cherry-red-light: #D4374A;
-  --cherry-red-dark: #8B1A29;
-  --cherry-red-glow: rgba(178, 34, 52, 0.3);
+  --cherry-red: #fccff7;
+  --cherry-red-light: #fde3fb;
+  --cherry-red-dark: #eab6e5;
+  --cherry-red-glow: rgba(252, 207, 247, 0.3);
 
   /* Secondary Colors */
-  --brown: #6B3A2A;
-  --brown-light: #8B5A4A;
-  --brown-dark: #4A2518;
+  --brown: #707070;
+  --brown-light: #919191;
+  --brown-dark: #4f4f4f;
 
-  /* Gold Accents */
+  /* Gold Accents - Keep as they provide luxury feel, but maybe desaturate slightly if needed */
   --gold: #D4A853;
   --gold-light: #E8C872;
   --gold-dark: #B08A3A;
 
   /* Neutrals */
   --white: #FFFFFF;
-  --off-white: #FFF8F0;
-  --cream: #FDF5E6;
-  --light-gray: #F5F0EB;
+  --off-white: #FAF8FA; /* Adjusted to match light lavender theme */
+  --cream: #F5EFF4;
+  --light-gray: #F0E6EF;
   --medium-gray: #9E9E9E;
   --dark-gray: #333333;
   --charcoal: #1A1A1A;
@@ -146,7 +146,7 @@ button {
 .section-subtitle {
   font-family: var(--font-accent);
   font-size: 1.1rem;
-  color: var(--cherry-red);
+  color: var(--brown);
   letter-spacing: 3px;
   text-transform: uppercase;
   margin-bottom: 12px;
@@ -172,7 +172,7 @@ button {
 .section-divider {
   width: 80px;
   height: 3px;
-  background: linear-gradient(90deg, var(--cherry-red), var(--gold));
+  background: linear-gradient(90deg, var(--brown), var(--gold));
   margin: 0 auto;
   border-radius: 2px;
 }
@@ -247,8 +247,8 @@ button {
 
 .btn-primary {
   background: linear-gradient(135deg, var(--cherry-red) 0%, var(--cherry-red-dark) 100%);
-  color: var(--white);
-  box-shadow: 0 4px 20px var(--cherry-red-glow);
+  color: var(--charcoal);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
 }
 
 .btn-primary:hover {
@@ -270,12 +270,12 @@ button {
 
 .btn-outline {
   background: transparent;
-  color: var(--cherry-red);
-  border: 2px solid var(--cherry-red);
+  color: var(--brown);
+  border: 2px solid var(--brown);
 }
 
 .btn-outline:hover {
-  background: var(--cherry-red);
+  background: var(--brown);
   color: var(--white);
   transform: translateY(-2px);
 }

@@ -3,7 +3,7 @@
    ======================================== */
 .footer {
   position: relative;
-  background: linear-gradient(180deg, var(--charcoal) 0%, #0a0a0a 100%);
+  background: linear-gradient(180deg, var(--charcoal) 0%, #000000 100%);
   color: rgba(255, 255, 255, 0.75);
 }
 
@@ -85,8 +85,8 @@
 }
 
 .footer__social-link:hover {
-  background: var(--cherry-red);
-  border-color: var(--cherry-red);
+  background: var(--brown);
+  border-color: var(--brown);
   color: var(--white);
   transform: translateY(-3px);
 }
@@ -108,7 +108,7 @@
   left: 0;
   width: 40px;
   height: 2px;
-  background: linear-gradient(90deg, var(--cherry-red), var(--gold));
+  background: linear-gradient(90deg, var(--brown), var(--gold));
   border-radius: 2px;
 }
 

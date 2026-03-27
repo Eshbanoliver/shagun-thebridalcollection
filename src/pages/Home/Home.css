@@ -21,13 +21,13 @@
 .hero__bg {
   position: absolute;
   inset: 0;
-  background: linear-gradient(135deg, #1a0a0a 0%, #2d0a0f 25%, #1a0808 50%, #0d0505 100%);
+  background: linear-gradient(135deg, #0d0d0d 0%, var(--brown-dark) 25%, #0d0d0d 50%, #000000 100%);
 }
 
 .hero__bg-overlay {
   position: absolute;
   inset: 0;
-  background: radial-gradient(ellipse at 30% 50%, rgba(178, 34, 52, 0.15) 0%, transparent 60%),
+  background: radial-gradient(ellipse at 30% 50%, var(--cherry-red-glow) 0%, transparent 60%),
               radial-gradient(ellipse at 70% 30%, rgba(212, 168, 83, 0.08) 0%, transparent 50%);
 }
 
@@ -170,7 +170,7 @@
 .about-preview__image-bg {
   width: 100%;
   height: 100%;
-  background: linear-gradient(135deg, var(--cherry-red) 0%, var(--brown-dark) 50%, var(--cherry-red-dark) 100%);
+  background: linear-gradient(135deg, var(--brown) 0%, var(--brown-dark) 50%, var(--brown-light) 100%);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -254,7 +254,7 @@
   right: -10%;
   width: 400px;
   height: 400px;
-  background: radial-gradient(circle, rgba(178, 34, 52, 0.15) 0%, transparent 70%);
+  background: radial-gradient(circle, var(--cherry-red-glow) 0%, transparent 70%);
   border-radius: 50%;
 }
 
@@ -314,11 +314,11 @@
   padding: 40px 30px;
   text-align: center;
   background: rgba(255, 255, 255, 0.6);
-  border: 1px solid rgba(178, 34, 52, 0.08);
+  border: 1px solid rgba(112, 112, 112, 0.1);
 }
 
 .services-preview__card:hover {
-  border-color: rgba(178, 34, 52, 0.2);
+  border-color: var(--brown-light);
 }
 
 .services-preview__card-icon {
@@ -379,7 +379,7 @@
 .mission-vision__card {
   padding: 40px;
   background: rgba(255, 255, 255, 0.5);
-  border: 1px solid rgba(178, 34, 52, 0.06);
+  border: 1px solid rgba(112, 112, 112, 0.08);
 }
 
 .mission-vision__card-header {
@@ -461,11 +461,11 @@
   padding: 36px 28px;
   text-align: center;
   background: rgba(255, 255, 255, 0.6);
-  border: 1px solid rgba(178, 34, 52, 0.06);
+  border: 1px solid rgba(112, 112, 112, 0.1);
 }
 
 .why-choose__card:hover {
-  border-color: rgba(178, 34, 52, 0.15);
+  border-color: var(--brown-light);
 }
 
 .why-choose__icon {
@@ -500,7 +500,7 @@
 .cta-section__bg {
   position: absolute;
   inset: 0;
-  background: linear-gradient(135deg, #1a0808 0%, var(--cherry-red-dark) 40%, var(--brown-dark) 70%, #1a0a0a 100%);
+  background: linear-gradient(135deg, #0d0d0d 0%, var(--brown-dark) 40%, var(--brown) 70%, #000000 100%);
 }
 
 .cta-section__overlay {
@@ -564,7 +564,7 @@
 .testimonials__card {
   padding: 36px 30px;
   background: rgba(255, 255, 255, 0.5);
-  border: 1px solid rgba(178, 34, 52, 0.06);
+  border: 1px solid rgba(112, 112, 112, 0.08);
 }
 
 .testimonials__stars {
@@ -630,7 +630,7 @@
 .faq-preview__item {
   padding: 28px 32px;
   background: rgba(255, 255, 255, 0.6);
-  border: 1px solid rgba(178, 34, 52, 0.06);
+  border: 1px solid rgba(112, 112, 112, 0.1);
 }
 
 .faq-preview__question {

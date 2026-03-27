@@ -61,12 +61,12 @@
 }
 
 .floating-btn--call {
-  background: linear-gradient(135deg, var(--cherry-red) 0%, var(--cherry-red-dark) 100%);
+  background: linear-gradient(135deg, var(--brown) 0%, var(--brown-dark) 100%);
   animation: float 3s ease-in-out infinite 0.5s;
 }
 
 .floating-btn--call:hover {
-  box-shadow: 0 6px 25px var(--cherry-red-glow);
+  box-shadow: 0 6px 25px rgba(112, 112, 112, 0.4);
 }
 
 @media (max-width: 640px) {

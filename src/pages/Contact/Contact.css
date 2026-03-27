@@ -16,7 +16,7 @@
 .contact-hero__bg {
   position: absolute;
   inset: 0;
-  background: linear-gradient(135deg, var(--cherry-red-dark) 0%, #1a0808 50%, var(--brown-dark) 100%);
+  background: linear-gradient(135deg, var(--brown-dark) 0%, #0d0d0d 50%, var(--brown) 100%);
 }
 
 .contact-hero__overlay {
@@ -81,7 +81,7 @@
   padding: 32px 24px;
   text-align: center;
   background: rgba(255, 255, 255, 0.7);
-  border: 1px solid rgba(178, 34, 52, 0.06);
+  border: 1px solid rgba(112, 112, 112, 0.06);
 }
 
 .contact-info__icon {
@@ -139,7 +139,7 @@
 .contact-form {
   padding: 48px;
   background: rgba(255, 255, 255, 0.7);
-  border: 1px solid rgba(178, 34, 52, 0.06);
+  border: 1px solid rgba(112, 112, 112, 0.06);
 }
 
 .contact-form__success {
@@ -195,8 +195,8 @@
 .contact-form__group input:focus,
 .contact-form__group select:focus,
 .contact-form__group textarea:focus {
-  border-color: var(--cherry-red);
-  box-shadow: 0 0 0 3px rgba(178, 34, 52, 0.1);
+  border-color: var(--brown);
+  box-shadow: 0 0 0 3px rgba(112, 112, 112, 0.1);
 }
 
 .contact-form__group textarea {
