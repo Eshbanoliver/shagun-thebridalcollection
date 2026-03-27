@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import SectionHeader from '../../components/SectionHeader/SectionHeader';
 import { useInView } from '../../hooks/useInView';
@@ -35,21 +35,31 @@ import './Home.css';
    ================================================ */
 
 const HeroSection: React.FC = () => {
+  const [currentSlide, setCurrentSlide] = useState(0);
+  const slides = [
+    '/hero/lehenga.png',
+    '/hero/jewelry.png',
+    '/hero/boutique.png'
+  ];
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentSlide((prev) => (prev + 1) % slides.length);
+    }, 5000);
+    return () => clearInterval(timer);
+  }, [slides.length]);
+
   return (
     <section className="hero" id="hero-section">
-      <div className="hero__bg">
+      <div className="hero__slider">
+        {slides.map((slide, index) => (
+          <div 
+            key={index}
+            className={`hero__slide ${index === currentSlide ? 'active' : ''}`}
+            style={{ backgroundImage: `url(${slide})` }}
+          />
+        ))}
         <div className="hero__bg-overlay"></div>
-        <div className="hero__bg-pattern"></div>
-        <div className="hero__bg-particles">
-          {[...Array(20)].map((_, i) => (
-            <span key={i} className="hero__particle" style={{
-              left: `${Math.random() * 100}%`,
-              top: `${Math.random() * 100}%`,
-              animationDelay: `${Math.random() * 5}s`,
-              animationDuration: `${3 + Math.random() * 4}s`,
-            }}></span>
-          ))}
-        </div>
       </div>
       <div className="hero__content container">
         <div className="hero__badge">
