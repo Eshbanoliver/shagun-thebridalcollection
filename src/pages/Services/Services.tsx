@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import SectionHeader from '../../components/SectionHeader/SectionHeader';
 import { useInView } from '../../hooks/useInView';
+import { Stars, Sparkles, Shirt, Gem, Tag, Check, Calendar, Phone } from 'lucide-react';
 import './Services.css';
 
 const Services: React.FC = () => {
@@ -10,28 +11,28 @@ const Services: React.FC = () => {
 
   const services = [
     {
-      icon: '👰',
+      icon: <Stars size={40} />,
       title: 'Wedding Lehenga',
       desc: 'Exquisitely embroidered bridal lehengas featuring zardozi work, mirror embellishments, and rich fabrics. Each piece is a masterwork of traditional Indian craftsmanship designed to make you the center of attention.',
       features: ['Handcrafted Embroidery', 'Premium Fabrics', 'Custom Fitting', 'Rent & Sale Options'],
       gradient: 'linear-gradient(135deg, var(--cherry-red) 0%, var(--cherry-red-dark) 100%)',
     },
     {
-      icon: '🪄',
+      icon: <Sparkles size={40} />,
       title: 'Paushak Collection',
       desc: 'Traditional Rajasthani paushak sets that honor cultural heritage while embracing modern elegance. Perfect for the bride who wants to celebrate tradition with grace and grandeur.',
       features: ['Traditional Designs', 'Rich Color Palette', 'Heritage Craftsmanship', 'Matching Accessories'],
       gradient: 'linear-gradient(135deg, var(--brown) 0%, var(--brown-dark) 100%)',
     },
     {
-      icon: '✨',
+      icon: <Shirt size={40} />,
       title: 'Pre-Wed Gowns',
       desc: 'Stunning designer gowns for pre-wedding photoshoots, engagement ceremonies, and receptions. From flowing silhouettes to fitted glamour, find your perfect pre-wedding look.',
       features: ['Designer Silhouettes', 'Photoshoot Ready', 'Western & Fusion Styles', 'Available for Rent'],
       gradient: 'linear-gradient(135deg, #D4A853 0%, #9A7A3A 100%)',
     },
     {
-      icon: '💎',
+      icon: <Gem size={40} />,
       title: 'Bridal Jewellery',
       desc: 'Complete your bridal ensemble with our curated collection of traditional kundan, polki, and contemporary jewellery sets. From maang tikka to payal — everything you need.',
       features: ['Kundan & Polki Sets', 'Complete Bridal Sets', 'Matching Ensemble Options', 'Rent & Purchase'],
@@ -67,21 +68,27 @@ const Services: React.FC = () => {
         <div className="container">
           <div className="services-badge-row">
             <div className="services-badge-item glass-card">
-              <span className="services-badge-icon">🏷️</span>
+              <span className="services-badge-icon">
+                <Tag size={24} />
+              </span>
               <div>
                 <h3>Available for Rent & Sale</h3>
                 <p>Flexible options to fit every budget</p>
               </div>
             </div>
             <div className="services-badge-item glass-card">
-              <span className="services-badge-icon">👗</span>
+              <span className="services-badge-icon">
+                <Shirt size={24} />
+              </span>
               <div>
                 <h3>Wedding Lehenga | Paushak</h3>
                 <p>Traditional bridal elegance</p>
               </div>
             </div>
             <div className="services-badge-item glass-card">
-              <span className="services-badge-icon">💍</span>
+              <span className="services-badge-icon">
+                <Gem size={24} />
+              </span>
               <div>
                 <h3>Pre Wed Gowns | Jewellery</h3>
                 <p>Complete your bridal look</p>
@@ -114,7 +121,9 @@ const Services: React.FC = () => {
                   <ul className="services-detail__features">
                     {service.features.map((f, j) => (
                       <li key={j}>
-                        <span className="services-detail__check">✓</span>
+                        <span className="services-detail__check">
+                          <Check size={14} />
+                        </span>
                         {f}
                       </li>
                     ))}
@@ -158,10 +167,12 @@ const Services: React.FC = () => {
           <p>Book a private consultation and let our experts guide you to the outfit of your dreams.</p>
           <div className="services-cta__actions">
             <Link to="/contact" className="btn btn-gold" id="services-cta-btn">
+              <Calendar size={18} />
               Book Appointment
             </Link>
             <a href="tel:9950889370" className="btn btn-secondary">
-              📞 Call: 9950889370
+              <Phone size={18} />
+              Call: 9950889370
             </a>
           </div>
         </div>

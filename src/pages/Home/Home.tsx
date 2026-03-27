@@ -2,6 +2,32 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import SectionHeader from '../../components/SectionHeader/SectionHeader';
 import { useInView } from '../../hooks/useInView';
+import { 
+  ArrowRight, 
+  Users, 
+  Award, 
+  Shirt, 
+  Heart, 
+  Sparkles, 
+  Stars, 
+  Gem, 
+  Target, 
+  Compass, 
+  Droplets, 
+  Palette, 
+  Crown, 
+  Lightbulb, 
+  Trophy, 
+  CheckCircle2, 
+  Package, 
+  IndianRupee, 
+  Scissors, 
+  Star, 
+  HelpCircle,
+  Calendar,
+  Phone,
+  MessageCircle
+} from 'lucide-react';
 import './Home.css';
 
 /* ================================================
@@ -26,7 +52,11 @@ const HeroSection: React.FC = () => {
         </div>
       </div>
       <div className="hero__content container">
-        <div className="hero__badge">✦ Premium Bridal Fashion ✦</div>
+        <div className="hero__badge">
+          <Sparkles size={14} className="inline-block mr-2" />
+          Premium Bridal Fashion
+          <Sparkles size={14} className="inline-block ml-2" />
+        </div>
         <h1 className="hero__title">
           <span className="hero__title-line">Where Dreams</span>
           <span className="hero__title-accent">Meet Elegance</span>
@@ -38,7 +68,7 @@ const HeroSection: React.FC = () => {
         <div className="hero__actions">
           <Link to="/services" className="btn btn-primary" id="hero-explore-btn">
             Explore Collection
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            <ArrowRight size={18} />
           </Link>
           <Link to="/contact" className="btn btn-secondary" id="hero-contact-btn">
             Book Appointment
@@ -86,7 +116,7 @@ const AboutPreview: React.FC = () => {
           </p>
           <Link to="/about" className="btn btn-outline" id="about-preview-btn">
             Discover Our Story
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            <ArrowRight size={18} />
           </Link>
         </div>
       </div>
@@ -97,10 +127,10 @@ const AboutPreview: React.FC = () => {
 const MetricsSection: React.FC = () => {
   const [ref, inView] = useInView();
   const metrics = [
-    { number: '2000+', label: 'Happy Brides', icon: '💍' },
-    { number: '10+', label: 'Years Experience', icon: '✨' },
-    { number: '500+', label: 'Exclusive Designs', icon: '👗' },
-    { number: '100%', label: 'Customer Satisfaction', icon: '❤️' },
+    { number: '2000+', label: 'Happy Brides', icon: <Users size={32} /> },
+    { number: '10+', label: 'Years Experience', icon: <Award size={32} /> },
+    { number: '500+', label: 'Exclusive Designs', icon: <Shirt size={32} /> },
+    { number: '100%', label: 'Customer Satisfaction', icon: <Heart size={32} /> },
   ];
 
   return (
@@ -127,19 +157,19 @@ const ServicesPreview: React.FC = () => {
     {
       title: 'Wedding Lehenga & Paushak',
       desc: 'Exquisite bridal lehengas and traditional paushak with intricate embroidery, handcrafted for your special day.',
-      icon: '👰',
+      icon: <Stars size={28} />,
       gradient: 'linear-gradient(135deg, var(--cherry-red) 0%, var(--cherry-red-dark) 100%)',
     },
     {
       title: 'Pre-Wed Gowns',
       desc: 'Stunning designer gowns for pre-wedding photoshoots and celebrations — effortlessly elegant and glamorous.',
-      icon: '✨',
+      icon: <Sparkles size={28} />,
       gradient: 'linear-gradient(135deg, var(--brown) 0%, var(--brown-dark) 100%)',
     },
     {
       title: 'Bridal Jewellery',
       desc: 'Complete your bridal look with our curated collection of traditional and contemporary jewellery pieces.',
-      icon: '💎',
+      icon: <Gem size={28} />,
       gradient: 'linear-gradient(135deg, #D4A853 0%, #B08A3A 100%)',
     },
   ];
@@ -162,7 +192,7 @@ const ServicesPreview: React.FC = () => {
               <p className="services-preview__card-desc">{service.desc}</p>
               <Link to="/services" className="services-preview__card-link">
                 View Collection
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                <ArrowRight size={16} />
               </Link>
             </div>
           ))}
@@ -189,7 +219,9 @@ const MissionVision: React.FC = () => {
         <div className="mission-vision__grid">
           <div className="mission-vision__card glass-card">
             <div className="mission-vision__card-header">
-              <div className="mission-vision__card-icon">🎯</div>
+              <div className="mission-vision__card-icon">
+                <Target size={32} className="text-cherry-red" />
+              </div>
               <h3>Our Mission</h3>
             </div>
             <p>
@@ -200,7 +232,9 @@ const MissionVision: React.FC = () => {
           </div>
           <div className="mission-vision__card glass-card">
             <div className="mission-vision__card-header">
-              <div className="mission-vision__card-icon">🌟</div>
+              <div className="mission-vision__card-icon">
+                <Compass size={32} className="text-gold" />
+              </div>
               <h3>Our Vision</h3>
             </div>
             <p>
@@ -218,12 +252,12 @@ const MissionVision: React.FC = () => {
 const CoreValues: React.FC = () => {
   const [ref, inView] = useInView();
   const values = [
-    { icon: '💎', title: 'Quality', desc: 'Only the finest fabrics and craftsmanship in every piece.' },
-    { icon: '🤝', title: 'Trust', desc: 'Building lasting relationships through transparency and integrity.' },
-    { icon: '🎨', title: 'Artistry', desc: 'Every design reflects passion, tradition, and modern aesthetics.' },
-    { icon: '👑', title: 'Elegance', desc: 'Timeless beauty that makes every bride feel like royalty.' },
-    { icon: '💝', title: 'Care', desc: 'Personalized attention to make your bridal journey special.' },
-    { icon: '✨', title: 'Innovation', desc: 'Blending heritage with contemporary bridal fashion trends.' },
+    { icon: <Droplets size={32} />, title: 'Quality', desc: 'Only the finest fabrics and craftsmanship in every piece.' },
+    { icon: <Users size={32} />, title: 'Trust', desc: 'Building lasting relationships through transparency and integrity.' },
+    { icon: <Palette size={32} />, title: 'Artistry', desc: 'Every design reflects passion, tradition, and modern aesthetics.' },
+    { icon: <Crown size={32} />, title: 'Elegance', desc: 'Timeless beauty that makes every bride feel like royalty.' },
+    { icon: <Heart size={32} />, title: 'Care', desc: 'Personalized attention to make your bridal journey special.' },
+    { icon: <Lightbulb size={32} />, title: 'Innovation', desc: 'Blending heritage with contemporary bridal fashion trends.' },
   ];
 
   return (
@@ -251,12 +285,12 @@ const CoreValues: React.FC = () => {
 const WhyChooseUs: React.FC = () => {
   const [ref, inView] = useInView();
   const reasons = [
-    { icon: '🏆', title: 'Trusted Brand', desc: 'Over a decade of creating beautiful bridal moments in Udaipur.' },
-    { icon: '👗', title: 'Rent & Sale', desc: 'Flexible options to fit every budget — rent or own your dream outfit.' },
-    { icon: '🎁', title: 'Complete Package', desc: 'Lehengas, gowns, paushak, and jewellery — everything under one roof.' },
-    { icon: '💰', title: 'Best Value', desc: 'Premium quality at fair prices with no hidden costs.' },
-    { icon: '🪡', title: 'Custom Fitting', desc: 'Expert tailoring and alterations for a perfect, personalized fit.' },
-    { icon: '⭐', title: 'VIP Experience', desc: 'Personal styling assistance and a luxurious shopping ambiance.' },
+    { icon: <Trophy size={32} />, title: 'Trusted Brand', desc: 'Over a decade of creating beautiful bridal moments in Udaipur.' },
+    { icon: <CheckCircle2 size={32} />, title: 'Rent & Sale', desc: 'Flexible options to fit every budget — rent or own your dream outfit.' },
+    { icon: <Package size={32} />, title: 'Complete Package', desc: 'Lehengas, gowns, paushak, and jewellery — everything under one roof.' },
+    { icon: <IndianRupee size={32} />, title: 'Best Value', desc: 'Premium quality at fair prices with no hidden costs.' },
+    { icon: <Scissors size={32} />, title: 'Custom Fitting', desc: 'Expert tailoring and alterations for a perfect, personalized fit.' },
+    { icon: <Star size={32} />, title: 'VIP Experience', desc: 'Personal styling assistance and a luxurious shopping ambiance.' },
   ];
 
   return (
@@ -288,7 +322,11 @@ const CTASection: React.FC = () => {
         <div className="cta-section__overlay"></div>
       </div>
       <div className="container cta-section__content">
-        <span className="cta-section__badge">✦ Limited Period Collection ✦</span>
+        <span className="cta-section__badge">
+          <Sparkles size={12} className="inline-block mr-2" />
+          Limited Period Collection
+          <Sparkles size={12} className="inline-block ml-2" />
+        </span>
         <h2 className="cta-section__title">
           Your Dream Bridal Look<br />Awaits You
         </h2>
@@ -298,10 +336,12 @@ const CTASection: React.FC = () => {
         </p>
         <div className="cta-section__actions">
           <Link to="/contact" className="btn btn-gold" id="cta-book-btn">
+            <Calendar size={18} />
             Book Your Appointment
           </Link>
           <a href="tel:9950889370" className="btn btn-secondary" id="cta-call-btn">
-            📞 Call: 9950889370
+            <Phone size={18} />
+            Call: 9950889370
           </a>
         </div>
       </div>
@@ -345,7 +385,7 @@ const Testimonials: React.FC = () => {
             <div className="testimonials__card glass-card" key={i}>
               <div className="testimonials__stars">
                 {[...Array(t.rating)].map((_, j) => (
-                  <span key={j} className="testimonials__star">★</span>
+                  <Star key={j} size={16} fill="var(--gold)" color="var(--gold)" className="inline-block mr-1" />
                 ))}
               </div>
               <p className="testimonials__text">"{t.text}"</p>
@@ -394,7 +434,9 @@ const FAQPreview: React.FC = () => {
           {faqs.map((faq, i) => (
             <div className="faq-preview__item glass-card" key={i}>
               <h4 className="faq-preview__question">
-                <span className="faq-preview__q-icon">Q</span>
+                <span className="faq-preview__q-icon">
+                  <HelpCircle size={14} />
+                </span>
                 {faq.q}
               </h4>
               <p className="faq-preview__answer">{faq.a}</p>
@@ -404,7 +446,7 @@ const FAQPreview: React.FC = () => {
         <div className="faq-preview__cta">
           <Link to="/faq" className="btn btn-outline" id="faq-preview-btn">
             View All FAQs
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            <ArrowRight size={18} />
           </Link>
         </div>
       </div>

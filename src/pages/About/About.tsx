@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import SectionHeader from '../../components/SectionHeader/SectionHeader';
 import { useInView } from '../../hooks/useInView';
+import { Gem, Palette, Users, Lightbulb, Sparkles } from 'lucide-react';
 import './About.css';
 
 const About: React.FC = () => {
@@ -10,10 +11,10 @@ const About: React.FC = () => {
   const [teamRef, teamInView] = useInView();
 
   const values = [
-    { icon: '💎', title: 'Premium Quality', desc: 'We source and craft only the finest fabrics, ensuring every piece meets the highest standards of bridal fashion.' },
-    { icon: '🎨', title: 'Artistic Excellence', desc: 'Each ensemble is a masterpiece of traditional artistry blended with contemporary design sensibility.' },
-    { icon: '🤝', title: 'Personal Touch', desc: 'We believe in building relationships, not just transactions. Every bride receives dedicated, personalized attention.' },
-    { icon: '✨', title: 'Innovation', desc: 'Staying ahead of trends while honoring timeless traditions that define Indian bridal wear.' },
+    { icon: <Gem size={32} />, title: 'Premium Quality', desc: 'We source and craft only the finest fabrics, ensuring every piece meets the highest standards of bridal fashion.' },
+    { icon: <Palette size={32} />, title: 'Artistic Excellence', desc: 'Each ensemble is a masterpiece of traditional artistry blended with contemporary design sensibility.' },
+    { icon: <Users size={32} />, title: 'Personal Touch', desc: 'We believe in building relationships, not just transactions. Every bride receives dedicated, personalized attention.' },
+    { icon: <Lightbulb size={32} />, title: 'Innovation', desc: 'Staying ahead of trends while honoring timeless traditions that define Indian bridal wear.' },
   ];
 
   const milestones = [

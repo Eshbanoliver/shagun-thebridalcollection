@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import SectionHeader from '../../components/SectionHeader/SectionHeader';
 import { useInView } from '../../hooks/useInView';
+import { Plus, Minus, Phone } from 'lucide-react';
 import './FAQ.css';
 
 interface FAQItemProps {
@@ -16,7 +17,9 @@ const FAQItem: React.FC<FAQItemProps> = ({ question, answer, isOpen, onToggle })
     <div className={`faq-item ${isOpen ? 'faq-item--open' : ''}`}>
       <button className="faq-item__question" onClick={onToggle} aria-expanded={isOpen}>
         <span>{question}</span>
-        <span className="faq-item__icon">{isOpen ? '−' : '+'}</span>
+        <span className="faq-item__icon">
+          {isOpen ? <Minus size={16} /> : <Plus size={16} />}
+        </span>
       </button>
       <div className="faq-item__answer-wrapper">
         <div className="faq-item__answer">
@@ -82,7 +85,7 @@ const FAQ: React.FC = () => {
           <div className="faq-hero__overlay"></div>
         </div>
         <div className="faq-hero__content container">
-          <span className="faq-hero__badge">✦ Help Center ✦</span>
+          <span className="faq-hero__badge">Help Center</span>
           <h1 className="faq-hero__title">Frequently Asked<br />Questions</h1>
           <p className="faq-hero__subtitle">
             Everything you need to know about our bridal collection and services.
@@ -123,7 +126,8 @@ const FAQ: React.FC = () => {
               Contact Us
             </Link>
             <a href="tel:9950889370" className="btn btn-secondary">
-              📞 Call: 9950889370
+              <Phone size={18} />
+              Call: 9950889370
             </a>
           </div>
         </div>

@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
+import { Mail, Clock, Camera, Phone, Sparkles } from 'lucide-react';
 import './Navbar.css';
 
 const Navbar: React.FC = () => {
@@ -43,18 +44,24 @@ const Navbar: React.FC = () => {
         <div className="container-wide navbar-top__container">
           <div className="navbar-top__left">
             <div className="navbar-top__item">
-              <span className="navbar-top__icon">✉</span>
+              <span className="navbar-top__icon">
+                <Mail size={14} />
+              </span>
               <a href="mailto:SHAGUNTHEBRIDALCOLLECTION@GMAIL.COM">SHAGUNTHEBRIDALCOLLECTION@GMAIL.COM</a>
             </div>
             <div className="navbar-top__item">
-              <span className="navbar-top__icon">🕒</span>
+              <span className="navbar-top__icon">
+                <Clock size={14} />
+              </span>
               <span>Mon - Sat 10:00 AM - 8:00 PM</span>
             </div>
           </div>
           <div className="navbar-top__right">
             <span className="navbar-top__label">Follow Us On :</span>
             <div className="navbar-top__social">
-              <a href="#" className="navbar-top__social-link">📸</a>
+              <a href="#" className="navbar-top__social-link">
+                <Camera size={16} />
+              </a>
             </div>
           </div>
         </div>
@@ -68,7 +75,9 @@ const Navbar: React.FC = () => {
             {/* 1. Brand Section (Logo) - White Parallelogram */}
             <div className="navbar-shagun__brand-box">
               <Link to="/" className="navbar-shagun__brand">
-                <span className="navbar-shagun__brand-icon">✦</span>
+                <span className="navbar-shagun__brand-icon">
+                  <Sparkles size={24} />
+                </span>
                 <div className="navbar-shagun__brand-text">
                   <span className="navbar-shagun__brand-name">Shagun</span>
                   <span className="navbar-shagun__brand-tagline">The Bridal Collection</span>
@@ -98,7 +107,7 @@ const Navbar: React.FC = () => {
             <div className="navbar-shagun__call-box">
               <div className="navbar-shagun__call-content">
                 <div className="navbar-shagun__call-icon">
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
+                  <Phone size={20} />
                 </div>
                 <div className="navbar-shagun__call-info">
                   <span className="navbar-shagun__call-label">CALL HELPLINE</span>
