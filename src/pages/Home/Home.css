@@ -282,29 +282,81 @@
 .metrics__grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 24px;
+  gap: 30px;
+  align-items: center;
 }
 
 .metrics__card {
-  padding: 40px 24px;
+  position: relative;
+  overflow: hidden;
+  padding: 50px 30px;
   text-align: center;
   transition: all var(--transition-smooth);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  z-index: 1;
+}
+
+.metrics__card:nth-child(2),
+.metrics__card:nth-child(4) {
+  transform: translateY(30px);
 }
 
 .metrics__card:hover {
-  transform: translateY(-6px);
-  border-color: rgba(212, 168, 83, 0.3);
+  transform: translateY(-15px);
+  border-color: var(--gold);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+}
+
+.metrics__card:nth-child(2):hover,
+.metrics__card:nth-child(4):hover {
+  transform: translateY(15px);
+}
+
+.metrics__bg-icon {
+  position: absolute;
+  top: -20px;
+  right: -30px;
+  opacity: 0.04;
+  color: var(--white);
+  transition: transform var(--transition-slow), opacity var(--transition-smooth), color var(--transition-smooth);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.metrics__card:hover .metrics__bg-icon {
+  transform: scale(1.15) rotate(-15deg);
+  opacity: 0.15;
+  color: var(--gold);
 }
 
 .metrics__icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.08);
   font-size: 2.5rem;
-  display: block;
-  margin-bottom: 16px;
+  margin-bottom: 24px;
+  color: var(--white);
+  transition: all var(--transition-base);
+  z-index: 2;
+  position: relative;
+}
+
+.metrics__card:hover .metrics__icon {
+  background: var(--gold);
+  color: var(--charcoal);
+  transform: scale(1.1);
+  box-shadow: 0 10px 20px rgba(212, 168, 83, 0.3);
 }
 
 .metrics__number {
   font-family: var(--font-heading);
-  font-size: 2.5rem;
+  font-size: 3.2rem;
   font-weight: 700;
   color: var(--white);
   display: block;
@@ -313,13 +365,20 @@
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
+  z-index: 2;
+  position: relative;
+  letter-spacing: -1px;
 }
 
 .metrics__label {
-  font-size: 0.9rem;
-  color: rgba(255, 255, 255, 0.6);
+  font-size: 0.95rem;
+  color: rgba(255, 255, 255, 0.7);
   display: block;
   margin-top: 8px;
+  z-index: 2;
+  position: relative;
+  text-transform: uppercase;
+  letter-spacing: 1px;
 }
 
 /* ========================================

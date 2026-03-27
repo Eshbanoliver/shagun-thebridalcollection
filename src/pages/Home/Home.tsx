@@ -146,13 +146,46 @@ const AboutPreview: React.FC = () => {
   );
 }
 
+/* ================================================
+   SUB-COMPONENTS
+   ================================================ */
+
+const CountUp: React.FC<{ end: number, suffix?: string }> = ({ end, suffix = '' }) => {
+  const [count, setCount] = useState(0);
+  const [ref, inView] = useInView();
+
+  useEffect(() => {
+    if (!inView) {
+      setCount(0);
+      return;
+    }
+    
+    let startTimestamp: number | null = null;
+    const duration = 2500;
+    
+    const step = (timestamp: number) => {
+      if (!startTimestamp) startTimestamp = timestamp;
+      const progress = Math.min((timestamp - startTimestamp) / duration, 1);
+      const easeProgress = 1 - Math.pow(1 - progress, 4); // easeOutQuart
+      setCount(Math.floor(easeProgress * end));
+      
+      if (progress < 1) {
+        window.requestAnimationFrame(step);
+      }
+    };
+    window.requestAnimationFrame(step);
+  }, [inView, end]);
+
+  return <span ref={ref}>{count}{suffix}</span>;
+};
+
 const MetricsSection: React.FC = () => {
   const [ref, inView] = useInView();
   const metrics = [
-    { number: '2000+', label: 'Happy Brides', icon: <Users size={32} /> },
-    { number: '10+', label: 'Years Experience', icon: <Award size={32} /> },
-    { number: '500+', label: 'Exclusive Designs', icon: <Shirt size={32} /> },
-    { number: '100%', label: 'Customer Satisfaction', icon: <Heart size={32} /> },
+    { numberValue: 2000, suffix: '+', label: 'Happy Brides', icon: <Users size={28} />, bgIcon: <Users size={180} /> },
+    { numberValue: 10, suffix: '+', label: 'Years Experience', icon: <Award size={28} />, bgIcon: <Award size={180} /> },
+    { numberValue: 500, suffix: '+', label: 'Exclusive Designs', icon: <Shirt size={28} />, bgIcon: <Shirt size={180} /> },
+    { numberValue: 100, suffix: '%', label: 'Customer Satisfaction', icon: <Heart size={28} />, bgIcon: <Heart size={180} /> },
   ];
 
   return (
@@ -162,8 +195,11 @@ const MetricsSection: React.FC = () => {
         <div className={`metrics__grid ${inView ? 'animate-fade-in-up' : 'opacity-0'}`}>
           {metrics.map((metric, i) => (
             <div className="metrics__card glass-card-dark" key={i} style={{ animationDelay: `${i * 0.1}s` }}>
+              <div className="metrics__bg-icon">{metric.bgIcon}</div>
               <span className="metrics__icon">{metric.icon}</span>
-              <span className="metrics__number">{metric.number}</span>
+              <span className="metrics__number">
+                <CountUp end={metric.numberValue} suffix={metric.suffix} />
+              </span>
               <span className="metrics__label">{metric.label}</span>
             </div>
           ))}
