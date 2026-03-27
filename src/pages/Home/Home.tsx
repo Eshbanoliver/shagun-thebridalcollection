@@ -286,10 +286,13 @@ const MissionVision: React.FC = () => {
           title="Our Mission & Vision"
         />
         <div className="mission-vision__grid">
-          <div className="mission-vision__card glass-card">
+          <div className="mission-vision__card mission">
+            <div className="mission-vision__bg-icon">
+              <Target size={120} />
+            </div>
             <div className="mission-vision__card-header">
               <div className="mission-vision__card-icon">
-                <Target size={32} className="text-cherry-red" />
+                <Target size={32} />
               </div>
               <h3>Our Mission</h3>
             </div>
@@ -299,10 +302,14 @@ const MissionVision: React.FC = () => {
               ensuring every bride feels confident, beautiful, and celebrated on her special day.
             </p>
           </div>
-          <div className="mission-vision__card glass-card">
+          
+          <div className="mission-vision__card vision">
+            <div className="mission-vision__bg-icon">
+              <Compass size={120} />
+            </div>
             <div className="mission-vision__card-header">
               <div className="mission-vision__card-icon">
-                <Compass size={32} className="text-gold" />
+                <Compass size={32} />
               </div>
               <h3>Our Vision</h3>
             </div>
