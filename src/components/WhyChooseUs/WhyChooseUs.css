@@ -1,0 +1,143 @@
+/* ========================================
+   WHY CHOOSE US (BENTO GRID)
+   ======================================== */
+.why-choose {
+  position: relative;
+  z-index: 1;
+  margin-top: 60px;
+  margin-bottom: 60px;
+}
+
+.why-choose__bento {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+  margin-top: 40px;
+}
+
+.why-choose__card {
+  position: relative;
+  border-radius: 28px;
+  overflow: hidden;
+  min-height: 280px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+  transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  /* The normal card spans 1 column */
+  grid-column: span 1;
+  background: var(--charcoal);
+  display: flex;
+  flex-direction: column;
+}
+
+/* Make 1st and 6th wide */
+.why-choose__card--wide {
+  grid-column: span 2;
+}
+
+.why-choose__card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 15px 50px rgba(0, 0, 0, 0.15);
+}
+
+.why-choose__bg {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+}
+
+.why-choose__bg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.8s ease;
+}
+
+.why-choose__card:hover .why-choose__bg img {
+  transform: scale(1.05);
+}
+
+.why-choose__overlay {
+  position: absolute;
+  inset: 0;
+  /* Premium dark overlay, darker at the bottom to ensure text readability */
+  background: linear-gradient(
+    to bottom, 
+    rgba(15, 15, 15, 0.2) 0%, 
+    rgba(15, 15, 15, 0.2) 40%, 
+    rgba(15, 15, 15, 0.7) 100%
+  );
+}
+
+.why-choose__top-left {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  z-index: 2;
+}
+
+
+
+.why-choose__content {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  right: 20px;
+  background: rgba(18, 18, 18, 0.65);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 20px;
+  padding: 24px;
+  z-index: 2;
+  transition: background 0.3s ease, border-color 0.3s ease;
+}
+
+.why-choose__card:hover .why-choose__content {
+  background: rgba(18, 18, 18, 0.85);
+  border-color: rgba(255, 255, 255, 0.3);
+}
+
+.why-choose__title {
+  font-family: var(--font-heading);
+  font-size: 1.35rem;
+  color: var(--white);
+  margin-bottom: 8px;
+  line-height: 1.3;
+}
+
+.why-choose__card--wide .why-choose__title {
+  font-size: 1.5rem;
+}
+
+.why-choose__desc {
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.75);
+  line-height: 1.6;
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+  .why-choose__bento {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .why-choose__bento {
+    grid-template-columns: 1fr;
+  }
+  .why-choose__card--wide {
+    grid-column: span 1;
+  }
+}

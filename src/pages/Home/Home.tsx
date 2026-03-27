@@ -28,6 +28,7 @@ import {
   Phone,
   MessageCircle
 } from 'lucide-react';
+import WhyChooseUs from '../../components/WhyChooseUs/WhyChooseUs';
 import './Home.css';
 
 /* ================================================
@@ -369,47 +370,7 @@ const CoreValues: React.FC = () => {
   );
 }
 
-const WhyChooseUs: React.FC = () => {
-  const [ref, inView] = useInView();
-  const reasons = [
-    { icon: <Trophy size={32} />, title: 'Trusted Brand', desc: 'Over a decade of creating beautiful bridal moments in Udaipur.', color: '#FF416C', bg: 'rgba(255, 65, 108, 0.1)', image: '/about/trusted.png' },
-    { icon: <CheckCircle2 size={32} />, title: 'Rent & Sale', desc: 'Flexible options to fit every budget — rent or own your dream outfit.', color: '#11998e', bg: 'rgba(17, 153, 142, 0.1)', image: '/about/rent.png' },
-    { icon: <Package size={32} />, title: 'Complete Package', desc: 'Lehengas, gowns, paushak, and jewellery — everything under one roof.', color: '#8E2DE2', bg: 'rgba(142, 45, 226, 0.1)', image: '/about/package.png' },
-    { icon: <IndianRupee size={32} />, title: 'Best Value', desc: 'Premium quality at fair prices with no hidden costs.', color: '#F7971E', bg: 'rgba(247, 151, 30, 0.1)', image: '/about/value.png' },
-    { icon: <Scissors size={32} />, title: 'Custom Fitting', desc: 'Expert tailoring and alterations for a perfect, personalized fit.', color: '#00B4DB', bg: 'rgba(0, 180, 219, 0.1)', image: '/about/fitting.png' },
-    { icon: <Star size={32} />, title: 'VIP Experience', desc: 'Personal styling assistance and a luxurious shopping ambiance.', color: '#D4145A', bg: 'rgba(212, 20, 90, 0.1)', image: '/about/vip.png' },
-  ];
 
-  return (
-    <section className="section why-choose" id="why-choose" ref={ref}>
-      <div className="why-choose__bg-overlay"></div>
-      <div className="container" style={{ position: 'relative', zIndex: 2 }}>
-        <SectionHeader
-          subtitle="The Shagun Difference"
-          title="Why Choose Us"
-          description="We're not just a bridal store — we're your partner in creating memories that last a lifetime."
-          light
-        />
-        <div className={`why-choose__masonry ${inView ? 'animate-fade-in-up' : 'opacity-0'}`}>
-          {reasons.map((reason, i) => (
-            <div className="why-choose__card" key={i} style={{ '--accent-color': reason.color, backgroundImage: `url(${reason.image})` } as React.CSSProperties}>
-              <div className="why-choose__card-overlay"></div>
-              <div className="why-choose__card-inner">
-                <div className="why-choose__header">
-                  <span className="why-choose__icon" style={{ color: reason.color, background: reason.bg }}>
-                    {reason.icon}
-                  </span>
-                  <h4 className="why-choose__title">{reason.title}</h4>
-                </div>
-                <p className="why-choose__desc">{reason.desc}</p>
-              </div>
-            </div>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-}
 
 const CTASection: React.FC = () => {
   return (

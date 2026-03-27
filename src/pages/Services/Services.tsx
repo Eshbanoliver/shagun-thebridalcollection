@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import SectionHeader from '../../components/SectionHeader/SectionHeader';
 import { useInView } from '../../hooks/useInView';
 import { Stars, Sparkles, Shirt, Gem, Tag, Check, Calendar, Phone } from 'lucide-react';
+import WhyChooseUs from '../../components/WhyChooseUs/WhyChooseUs';
 import './Services.css';
 
 const Services: React.FC = () => {
@@ -137,6 +138,9 @@ const Services: React.FC = () => {
           </div>
         </div>
       </section>
+
+      {/* Why Choose Us */}
+      <WhyChooseUs />
 
       {/* Process */}
       <section className="section section-dark" ref={processRef}>
