@@ -99,13 +99,25 @@ const AboutPreview: React.FC = () => {
     <section className="section section-gradient about-preview" id="about-preview" ref={ref}>
       <div className={`container about-preview__inner ${inView ? 'animate-fade-in-up' : 'opacity-0'}`}>
         <div className="about-preview__visual">
-          <div className="about-preview__image-frame">
-            <div className="about-preview__image-bg">
-              <div className="about-preview__decorative-text">शगुन</div>
+          <div className="about-preview__image-main">
+            <img src="/about/main.png" alt="Bridal Collection Preview" loading="lazy" />
+          </div>
+          <div className="about-preview__image-overlay">
+            <img src="/about/overlay.png" alt="Intricate Jewelry Detail" loading="lazy" />
+          </div>
+          <div className="about-preview__badge-float">
+            <div className="about-preview__badge-spin">
+              <svg viewBox="0 0 100 100" width="100" height="100">
+                <path id="circlePath" d="M 50, 50 m -35, 0 a 35,35 0 1,1 70,0 a 35,35 0 1,1 -70,0" fill="none" />
+                <text>
+                  <textPath href="#circlePath" startOffset="0%" fill="currentColor">
+                    SHAGUN BRIDAL BOUTIQUE •
+                  </textPath>
+                </text>
+              </svg>
             </div>
-            <div className="about-preview__badge-float">
-              <span className="about-preview__badge-number">Since</span>
-              <span className="about-preview__badge-label">Est. 2015</span>
+            <div className="about-preview__badge-year">
+              2015
             </div>
           </div>
         </div>
@@ -144,7 +156,7 @@ const MetricsSection: React.FC = () => {
   ];
 
   return (
-    <section className="section section-dark metrics" id="metrics-section" ref={ref}>
+    <section className="section metrics" id="metrics-section" ref={ref}>
       <div className="metrics__bg-decor"></div>
       <div className="container">
         <div className={`metrics__grid ${inView ? 'animate-fade-in-up' : 'opacity-0'}`}>
