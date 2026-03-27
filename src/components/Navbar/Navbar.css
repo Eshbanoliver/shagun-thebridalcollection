@@ -326,8 +326,9 @@
   .navbar-shagun__call-box { display: none; }
 
   .navbar-shagun {
-    background: var(--white);
-    border-radius: 4px;
+    background: linear-gradient(115deg, var(--white) 0%, var(--white) 50%, var(--cherry-red) 50%, var(--cherry-red) 100%);
+    border-radius: var(--radius-md);
+    overflow: hidden;
   }
 
   .navbar-shagun__brand-box {
@@ -335,6 +336,7 @@
     clip-path: none;
     border-radius: 4px 0 0 4px;
     background: transparent;
+    padding-left: 24px;
   }
   
   .navbar-shagun__nav-box {
@@ -352,9 +354,16 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-right: 30px;
+    margin-right: 20px;
+    padding: 10px;
     border: none;
     cursor: pointer;
+    background: rgba(255, 255, 255, 0.4);
+    border-radius: 8px;
+  }
+
+  .navbar-shagun__hamburger span {
+    background: var(--charcoal);
   }
   
   .navbar-shagun__hamburger--active span:nth-child(1) {
