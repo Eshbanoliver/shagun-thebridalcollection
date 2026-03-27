@@ -24,9 +24,11 @@ import {
   Scissors, 
   Star, 
   HelpCircle,
+  ChevronDown,
   Calendar,
   Phone,
-  MessageCircle
+  MessageCircle,
+  Quote
 } from 'lucide-react';
 import WhyChooseUs from '../../components/WhyChooseUs/WhyChooseUs';
 import './Home.css';
@@ -451,19 +453,22 @@ const Testimonials: React.FC = () => {
               <div className="testimonials__marquee-group" aria-hidden={groupIndex === 1} key={groupIndex}>
                 {[...testimonials, ...testimonials].map((t, i) => (
                   <div className="testimonials__card glass-card" key={`g${groupIndex}-${i}`}>
-                    <div className="testimonials__stars">
-                      {[...Array(t.rating)].map((_, j) => (
-                        <Star key={j} size={16} fill="var(--gold)" color="var(--gold)" className="inline-block mr-1" />
-                      ))}
-                    </div>
-                    <p className="testimonials__text">"{t.text}"</p>
-                    <div className="testimonials__author">
-                      <div className="testimonials__avatar">
-                        {t.name.charAt(0)}
+                    <Quote size={80} className="testimonials__quote-icon" />
+                    <div className="testimonials__content-wrapper">
+                      <div className="testimonials__stars">
+                        {[...Array(t.rating)].map((_, j) => (
+                          <Star key={j} size={16} fill="var(--gold)" color="var(--gold)" className="inline-block mr-1" />
+                        ))}
                       </div>
-                      <div>
-                        <h4 className="testimonials__name">{t.name}</h4>
-                        <p className="testimonials__role">{t.role}</p>
+                      <p className="testimonials__text">{t.text}</p>
+                      <div className="testimonials__author">
+                        <div className="testimonials__avatar">
+                          {t.name.charAt(0)}
+                        </div>
+                        <div>
+                          <h4 className="testimonials__name">{t.name}</h4>
+                          <p className="testimonials__role">{t.role}</p>
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -479,6 +484,12 @@ const Testimonials: React.FC = () => {
 
 const FAQPreview: React.FC = () => {
   const [ref, inView] = useInView();
+  const [activeIndex, setActiveIndex] = useState<number | null>(0);
+
+  const toggleAccordion = (index: number) => {
+    setActiveIndex(activeIndex === index ? null : index);
+  };
+
   const faqs = [
     {
       q: 'Do you offer bridal outfits on rent?',
@@ -501,16 +512,30 @@ const FAQPreview: React.FC = () => {
           subtitle="Common Questions"
           title="Frequently Asked Questions"
         />
-        <div className={`faq-preview__list ${inView ? 'animate-fade-in-up' : 'opacity-0'}`}>
+        <div className={`faq-accordion ${inView ? 'animate-fade-in-up' : 'opacity-0'}`}>
           {faqs.map((faq, i) => (
-            <div className="faq-preview__item glass-card" key={i}>
-              <h4 className="faq-preview__question">
-                <span className="faq-preview__q-icon">
-                  <HelpCircle size={14} />
+            <div 
+              className={`faq-accordion__item ${activeIndex === i ? 'active' : ''}`} 
+              key={i}
+            >
+              <button 
+                className="faq-accordion__header" 
+                onClick={() => toggleAccordion(i)}
+                aria-expanded={activeIndex === i}
+              >
+                <span className="faq-accordion__q-icon">
+                  <HelpCircle size={18} />
                 </span>
-                {faq.q}
-              </h4>
-              <p className="faq-preview__answer">{faq.a}</p>
+                <span className="faq-accordion__question">{faq.q}</span>
+                <span className="faq-accordion__chevron">
+                  <ChevronDown size={20} />
+                </span>
+              </button>
+              <div className="faq-accordion__content">
+                <div className="faq-accordion__content-inner">
+                  <p className="faq-accordion__answer">{faq.a}</p>
+                </div>
+              </div>
             </div>
           ))}
         </div>
