@@ -17,11 +17,35 @@ const About: React.FC = () => {
     { icon: <Lightbulb size={32} />, title: 'Innovation', desc: 'Staying ahead of trends while honoring timeless traditions that define Indian bridal wear.' },
   ];
 
-  const milestones = [
-    { year: '2015', title: 'The Beginning', desc: 'Shagun THE BRIDAL COLLECTION opened its doors in Udaipur with a vision to redefine bridal fashion.' },
-    { year: '2018', title: 'Growing Reputation', desc: 'Expanded our collection to include pre-wedding gowns and an exclusive jewellery line.' },
-    { year: '2021', title: 'Rent Service Launched', desc: 'Introduced our popular rental service, making luxury bridal wear accessible to all.' },
-    { year: '2024', title: '2000+ Happy Brides', desc: 'Celebrated the milestone of dressing over 2000 brides across Rajasthan and beyond.' },
+  const processes = [
+    { 
+      step: '01', 
+      title: 'Consultation', 
+      desc: 'Our experts understand your vision, preferences, and wedding theme to guide your choice.',
+      color: 'emerald',
+      icon: <Sparkles size={24} />
+    },
+    { 
+      step: '02', 
+      title: 'Collections', 
+      desc: 'Explore our vast curated range of premium lehengas, gowns, and bridal jewellery.',
+      color: 'saffron',
+      icon: <Palette size={24} />
+    },
+    { 
+      step: '03', 
+      title: 'Expert Fit', 
+      desc: 'Detailed measurement and fitting sessions to ensure your outfit is comfortable and perfect.',
+      color: 'ruby',
+      icon: <Palette size={24} />
+    },
+    { 
+      step: '04', 
+      title: 'The Reveal', 
+      desc: 'Your dream bridal look is meticulously prepared, steamed, and ready for your big day.',
+      color: 'gold',
+      icon: <Gem size={24} />
+    },
   ];
 
   return (
@@ -94,22 +118,25 @@ const About: React.FC = () => {
         </div>
       </section>
 
-      {/* Timeline */}
-      <section className="section section-dark about-timeline" ref={teamRef}>
+      {/* Our Process Section */}
+      <section className="section section-dark about-process" ref={teamRef}>
         <div className="container">
           <SectionHeader
-            subtitle="Milestones"
-            title="Our Journey Through the Years"
+            subtitle="The Journey"
+            title="Our Bridal Process"
             light
           />
-          <div className={`about-timeline__grid ${teamInView ? 'animate-fade-in-up' : 'opacity-0'}`}>
-            {milestones.map((m, i) => (
-              <div className="about-timeline__item" key={i}>
-                <div className="about-timeline__year">{m.year}</div>
-                <div className="about-timeline__line"></div>
-                <div className="about-timeline__card glass-card-dark">
-                  <h4>{m.title}</h4>
-                  <p>{m.desc}</p>
+          <div className={`about-process__grid ${teamInView ? 'animate-fade-in-up' : 'opacity-0'}`}>
+            {processes.map((p, i) => (
+              <div className={`about-process__item process-color-${p.color}`} key={i}>
+                <div className="about-process__step-wrapper">
+                  <div className="about-process__step">{p.step}</div>
+                  <div className="about-process__line"></div>
+                </div>
+                <div className="about-process__card glass-card-dark">
+                  <div className="about-process__icon">{p.icon}</div>
+                  <h4>{p.title}</h4>
+                  <p>{p.desc}</p>
                 </div>
               </div>
             ))}
