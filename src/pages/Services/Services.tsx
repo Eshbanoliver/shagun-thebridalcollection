@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import SectionHeader from '../../components/SectionHeader/SectionHeader';
 import { useInView } from '../../hooks/useInView';
-import { Stars, Sparkles, Shirt, Gem, Tag, Check, Calendar, Phone } from 'lucide-react';
+import { Stars, Sparkles, Shirt, Gem, Tag, Check, Calendar, Phone, Crown, Palette, Scissors, Heart } from 'lucide-react';
 import WhyChooseUs from '../../components/WhyChooseUs/WhyChooseUs';
 import './Services.css';
 
@@ -13,31 +13,52 @@ const Services: React.FC = () => {
   const services = [
     {
       icon: <Stars size={40} />,
-      title: 'Wedding Lehenga',
-      desc: 'Exquisitely embroidered bridal lehengas featuring zardozi work, mirror embellishments, and rich fabrics. Each piece is a masterwork of traditional Indian craftsmanship designed to make you the center of attention.',
-      features: ['Handcrafted Embroidery', 'Premium Fabrics', 'Custom Fitting', 'Rent & Sale Options'],
-      gradient: 'linear-gradient(135deg, var(--cherry-red) 0%, var(--cherry-red-dark) 100%)',
+      title: 'Wedding Lehengas',
+      desc: 'Our signature collection of bridal lehengas featuring intricate Zardozi, Gota Patti, and hand-embroidery. Available for both personalized rental and exclusive sale.',
+      features: ['Handcrafted Zardozi', 'Bespoke Fitting', 'Regal Silhouettes', 'Premium Velvets & Silks'],
+      gradient: 'linear-gradient(135deg, #8E0E00 0%, #1F1C18 100%)',
+    },
+    {
+      icon: <Palette size={40} />,
+      title: 'Designer Sarees',
+      desc: 'Exquisite sarees ranging from traditional Banarasi and Kanjeevaram to modern designer drapes in Chiffon and Organza. Perfect for weddings and high-profile parties.',
+      features: ['Silk & Georgette', 'Designer Borders', 'Custom Blouse Stitching', 'Classic & Contemporary'],
+      gradient: 'linear-gradient(135deg, #000428 0%, #004e92 100%)',
     },
     {
       icon: <Sparkles size={40} />,
-      title: 'Paushak Collection',
-      desc: 'Traditional Rajasthani paushak sets that honor cultural heritage while embracing modern elegance. Perfect for the bride who wants to celebrate tradition with grace and grandeur.',
-      features: ['Traditional Designs', 'Rich Color Palette', 'Heritage Craftsmanship', 'Matching Accessories'],
-      gradient: 'linear-gradient(135deg, var(--brown) 0%, var(--brown-dark) 100%)',
+      title: 'Salwar Suits & Shararas',
+      desc: 'Elegant salwar suits and trendy sharara sets designed for sangeet, haldi, and festive celebrations. A blend of comfort and traditional glamour.',
+      features: ['Heavy Sharara Sets', 'Anarkali Styles', 'Mirror Work Details', 'Custom Tailoring'],
+      gradient: 'linear-gradient(135deg, #D4A853 0%, #B08A3A 100%)',
+    },
+    {
+      icon: <Crown size={40} />,
+      title: 'Gowns & Bridal Wear',
+      desc: 'Breathtaking bridal gowns and heavy ethnic wear for receptions and pre-wedding shoots. Designed to make every bride feel like global royalty.',
+      features: ['Fairy-tale Silhouettes', 'International Trends', 'Intricate Beadwork', 'Photogenic Styles'],
+      gradient: 'linear-gradient(135deg, #1d2671 0%, #c33764 100%)',
     },
     {
       icon: <Shirt size={40} />,
-      title: 'Pre-Wed Gowns',
-      desc: 'Stunning designer gowns for pre-wedding photoshoots, engagement ceremonies, and receptions. From flowing silhouettes to fitted glamour, find your perfect pre-wedding look.',
-      features: ['Designer Silhouettes', 'Photoshoot Ready', 'Western & Fusion Styles', 'Available for Rent'],
-      gradient: 'linear-gradient(135deg, #D4A853 0%, #9A7A3A 100%)',
+      title: 'Dresses & Indo-Western',
+      desc: 'A fusion of Indian tradition and Western elegance. Our designer dresses capture the essence of modern bridal fashion with ease and style.',
+      features: ['Modern Cuts', 'Fusion Embroidery', 'Luxury Party Wear', 'Trendy Palettes'],
+      gradient: 'linear-gradient(135deg, #373331 0%, #bbbbbb 100%)',
+    },
+    {
+      icon: <Scissors size={40} />,
+      title: 'Suits & Dress Materials',
+      desc: 'Exclusive unstitched dress materials and luxury suit fabrics for those who want to create their own unique bridal ensemble.',
+      features: ['Pure Silk & Cotton', 'Authentic Prints', 'Intricate Necklines', 'Custom Design Support'],
+      gradient: 'linear-gradient(135deg, #4b6cb7 0%, #182848 100%)',
     },
     {
       icon: <Gem size={40} />,
-      title: 'Bridal Jewellery',
-      desc: 'Complete your bridal ensemble with our curated collection of traditional kundan, polki, and contemporary jewellery sets. From maang tikka to payal — everything you need.',
-      features: ['Kundan & Polki Sets', 'Complete Bridal Sets', 'Matching Ensemble Options', 'Rent & Purchase'],
-      gradient: 'linear-gradient(135deg, var(--cherry-red) 0%, var(--gold) 100%)',
+      title: 'Exquisite Jewellery',
+      desc: 'Complete your look with our curated bridal jewellery sets featuring premium Kundan, Polki, and Jadau craftsmanship.',
+      features: ['Bridal Choker Sets', 'Maang Tikka & Mathapatti', 'Matching Earrings', 'Rent & Sale Options'],
+      gradient: 'linear-gradient(135deg, #642B73 0%, #C6426E 100%)',
     },
   ];
 
@@ -82,8 +103,8 @@ const Services: React.FC = () => {
                 <Shirt size={24} />
               </span>
               <div>
-                <h3>Wedding Lehenga | Paushak</h3>
-                <p>Traditional bridal elegance</p>
+                <h3>Lehengas | Sarees | Suits</h3>
+                <p>Traditional & Party Collections</p>
               </div>
             </div>
             <div className="services-badge-item glass-card">
@@ -91,8 +112,8 @@ const Services: React.FC = () => {
                 <Gem size={24} />
               </span>
               <div>
-                <h3>Pre Wed Gowns | Jewellery</h3>
-                <p>Complete your bridal look</p>
+                <h3>Gowns | Dresses | Jewellery</h3>
+                <p>Modern Fusion & Bridal Finishes</p>
               </div>
             </div>
           </div>
