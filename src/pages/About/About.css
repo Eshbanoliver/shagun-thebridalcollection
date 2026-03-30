@@ -613,6 +613,7 @@
   color: var(--white);
   padding: 120px 0;
   overflow: hidden;
+  margin-bottom: 80px; /* Added white space as requested */
 }
 
 .heritage-inner {
@@ -755,6 +756,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  margin-top: 50px; /* Added additional breathing space */
 }
 
 .cta-section__bg {
