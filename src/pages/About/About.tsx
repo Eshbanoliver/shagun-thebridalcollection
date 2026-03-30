@@ -41,14 +41,23 @@ const About: React.FC = () => {
       </section>
 
       {/* Story Section */}
-      <section className="section section-gradient" ref={storyRef}>
+      <section className="section section-story-enhanced" ref={storyRef}>
+        <div className="about-story__ornament top-right"></div>
+        <div className="about-story__ornament bottom-left"></div>
         <div className={`container about-story ${storyInView ? 'animate-fade-in-up' : 'opacity-0'}`}>
           <div className="about-story__content">
-            <SectionHeader
-              subtitle="Our Journey"
-              title="The Shagun Story"
-            />
+            <div className="about-story__header">
+              <span className="about-subtitle-creative">
+                <Sparkles size={14} className="inline-block mr-2" />
+                Our Journey
+              </span>
+              <h2 className="about-title-creative">
+                The <span className="text-golditalic">Shagun</span> Story
+              </h2>
+              <div className="about-divider-premium"></div>
+            </div>
             <div className="about-story__text">
+
               <p>
                 Founded in the majestic city of Udaipur, <strong>Shagun THE BRIDAL COLLECTION</strong> was born 
                 from a deep passion for bridal fashion and a desire to make every bride's dream come true. 
@@ -69,9 +78,12 @@ const About: React.FC = () => {
             </div>
           </div>
           <div className="about-story__visual">
-            <div className="about-story__frame">
+            <div className="about-story__frame premium-frame">
               <div className="about-story__frame-inner">
+                <img src="/about/story-main.png" alt="Our Boutique" className="about-story__image" />
+                <div className="about-story__overlay-glow"></div>
                 <div className="about-story__decorative">शगुन</div>
+
                 <div className="about-story__frame-badge">
                   <span>10+</span>
                   <small>Years of Excellence</small>
