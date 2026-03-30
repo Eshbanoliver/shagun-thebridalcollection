@@ -17,6 +17,12 @@ const About: React.FC = () => {
     { icon: <Lightbulb size={32} />, title: 'Innovation', desc: 'Staying ahead of trends while honoring timeless traditions that define Indian bridal wear.', color: 'teal' },
   ];
 
+  const crafts = [
+    { title: 'The Zardosi Art', desc: 'Handcrafted gold and silver thread work that has been the hallmark of Indian royalty for centuries.' },
+    { title: 'Bespoke Tailoring', desc: 'Every stitch is a promise of perfection, ensuring a silhouette that makes every bride feel like a queen.' },
+    { title: 'Exquisite Fabrics', desc: 'Sourcing the finest hand-woven silks and organzas from the traditional looms across India.' },
+  ];
+
   const processes = [
     { 
       step: '01', 
@@ -166,6 +172,42 @@ const About: React.FC = () => {
                 <div className="value-card__number">0{i + 1}</div>
               </div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Heritage & Craftsmanship Section */}
+      <section className="section section-heritage">
+        <div className="container heritage-inner">
+          <div className="heritage__visual">
+            <div className="heritage__frame">
+              <img src="/about/craft-detail.png" alt="Heritage Craftsmanship" className="heritage__main-img" />
+              <div className="heritage__frame-accent"></div>
+            </div>
+            <div className="heritage__floating-badge animate-float">
+              <span>Authentic</span>
+              <small>Heritage Art</small>
+            </div>
+          </div>
+          <div className="heritage__content">
+            <div className="about-subtitle-creative heritage-subtitle">
+              <Sparkles size={14} className="inline-block mr-2" />
+              Preserving Traditions
+            </div>
+            <h2 className="about-title-creative heritage-title">
+              Heritage <span className="text-golditalic">&</span> Craftsmanship
+            </h2>
+            <div className="heritage__grid">
+              {crafts.map((c, i) => (
+                <div className="heritage__item" key={i}>
+                  <div className="heritage__item-dot"></div>
+                  <div className="heritage__item-text">
+                    <h4>{c.title}</h4>
+                    <p>{c.desc}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </section>
