@@ -11,10 +11,10 @@ const About: React.FC = () => {
   const [teamRef, teamInView] = useInView();
 
   const values = [
-    { icon: <Gem size={32} />, title: 'Premium Quality', desc: 'We source and craft only the finest fabrics, ensuring every piece meets the highest standards of bridal fashion.' },
-    { icon: <Palette size={32} />, title: 'Artistic Excellence', desc: 'Each ensemble is a masterpiece of traditional artistry blended with contemporary design sensibility.' },
-    { icon: <Users size={32} />, title: 'Personal Touch', desc: 'We believe in building relationships, not just transactions. Every bride receives dedicated, personalized attention.' },
-    { icon: <Lightbulb size={32} />, title: 'Innovation', desc: 'Staying ahead of trends while honoring timeless traditions that define Indian bridal wear.' },
+    { icon: <Gem size={32} />, title: 'Premium Quality', desc: 'We source and craft only the finest fabrics, ensuring every piece meets the highest standards of bridal fashion.', color: 'gold' },
+    { icon: <Palette size={32} />, title: 'Artistic Excellence', desc: 'Each ensemble is a masterpiece of traditional artistry blended with contemporary design sensibility.', color: 'purple' },
+    { icon: <Users size={32} />, title: 'Personal Touch', desc: 'We believe in building relationships, not just transactions. Every bride receives dedicated, personalized attention.', color: 'pink' },
+    { icon: <Lightbulb size={32} />, title: 'Innovation', desc: 'Staying ahead of trends while honoring timeless traditions that define Indian bridal wear.', color: 'teal' },
   ];
 
   const processes = [
@@ -145,19 +145,25 @@ const About: React.FC = () => {
       </section>
 
       {/* Values */}
-      <section className="section section-cream" ref={valuesRef}>
+      <section className="section section-values-creative" ref={valuesRef}>
         <div className="container">
           <SectionHeader
             subtitle="Our Philosophy"
             title="Values That Drive Us"
             description="These principles guide everything we do, from selecting fabrics to styling brides."
           />
-          <div className={`about-values__grid ${valuesInView ? 'animate-fade-in-up' : 'opacity-0'}`}>
+          <div className={`about-values__creative-grid ${valuesInView ? 'animate-fade-in-up' : 'opacity-0'}`}>
             {values.map((v, i) => (
-              <div className="about-values__card glass-card" key={i}>
-                <span className="about-values__icon">{v.icon}</span>
-                <h4 className="about-values__title">{v.title}</h4>
-                <p className="about-values__desc">{v.desc}</p>
+              <div className={`about-values__creative-card value-color-${v.color}`} key={i}>
+                <div className="value-card__bg-glow"></div>
+                <div className="value-card__icon-wrapper">
+                  {v.icon}
+                </div>
+                <div className="value-card__content">
+                  <h4 className="value-card__title">{v.title}</h4>
+                  <p className="value-card__desc">{v.desc}</p>
+                </div>
+                <div className="value-card__number">0{i + 1}</div>
               </div>
             ))}
           </div>
