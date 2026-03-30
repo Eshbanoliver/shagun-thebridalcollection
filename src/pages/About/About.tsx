@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import SectionHeader from '../../components/SectionHeader/SectionHeader';
 import { useInView } from '../../hooks/useInView';
-import { Gem, Palette, Users, Lightbulb, Sparkles, Calendar, Phone } from 'lucide-react';
+import { Gem, Palette, Users, Lightbulb, Sparkles, Calendar, Phone, Award, Heart, CheckCircle } from 'lucide-react';
 import './About.css';
 
 const About: React.FC = () => {
@@ -10,6 +10,7 @@ const About: React.FC = () => {
   const [valuesRef, valuesInView] = useInView();
   const [teamRef, teamInView] = useInView();
   const [heritageRef, heritageInView] = useInView();
+  const [experienceRef, experienceInView] = useInView();
 
   const values = [
     { icon: <Gem size={32} />, title: 'Premium Quality', desc: 'We source and craft only the finest fabrics, ensuring every piece meets the highest standards of bridal fashion.', color: 'gold' },
@@ -173,6 +174,82 @@ const About: React.FC = () => {
                 <div className="value-card__number">0{i + 1}</div>
               </div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Experience Layout (From User Layout Request) */}
+      <section className="section section-experience" ref={experienceRef}>
+        <div className={`container experience-grid ${experienceInView ? 'animate-fade-in-up' : 'opacity-0'}`}>
+          {/* Left Column: Visual Stacks */}
+          <div className="experience__visuals">
+            <div className="experience__img-top">
+              <img src="/about/experience-1.png" alt="Boutique Experience" />
+              <div className="experience__img-overlay"></div>
+            </div>
+            <div className="experience__img-bottom">
+              <img src="/about/experience-2.png" alt="Jewelry Craftsmanship" />
+            </div>
+          </div>
+
+          {/* Middle Column: Elevated Card */}
+          <div className="experience__middle-card">
+            <div className="experience__card-inner glass-card-dark">
+              <span className="experience__card-label">Est. 2015</span>
+              <h2 className="experience__card-title">Shagun Boutique Experience</h2>
+              <p className="experience__card-text">
+                Nestled in the architectural heart of Udaipur, Shagun THE BRIDAL COLLECTION
+                has spent over a decade curating dreams for every bride.
+              </p>
+              <p className="experience__card-text">
+                From the moment you walk through our doors, our mission is simple: 
+                to blend royal heritage with your personal contemporary vision.
+              </p>
+              <Link to="/contact" className="btn btn-gold experience__card-btn">
+                Learn More
+              </Link>
+            </div>
+          </div>
+
+          {/* Right Column: Why Choose Us Items */}
+          <div className="experience__features">
+            <div className="about-subtitle-creative mb-2">Why Choose Us</div>
+            <h3 className="experience__feature-title">The Boutique Difference</h3>
+            <p className="experience__feature-subtitle">
+              Experience the personalized luxury that makes Shagun unique.
+            </p>
+
+            <div className="experience__feature-list">
+              <div className="experience__feature-item">
+                <div className="experience__feature-icon">
+                  <Award size={24} />
+                </div>
+                <div className="experience__feature-content">
+                  <h4>10+ Years Experience</h4>
+                  <p>Decades of mastery in bridal fashion and styling.</p>
+                </div>
+              </div>
+
+              <div className="experience__feature-item">
+                <div className="experience__feature-icon">
+                  <Heart size={24} />
+                </div>
+                <div className="experience__feature-content">
+                  <h4>Personalized Styling</h4>
+                  <p>Dedicated designers helping you choose your dream look.</p>
+                </div>
+              </div>
+
+              <div className="experience__feature-item">
+                <div className="experience__feature-icon">
+                  <CheckCircle size={24} />
+                </div>
+                <div className="experience__feature-content">
+                  <h4>Industry Certified</h4>
+                  <p>Premium quality fabrics and verified jewelry art.</p>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
