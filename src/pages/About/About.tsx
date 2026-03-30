@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import SectionHeader from '../../components/SectionHeader/SectionHeader';
 import { useInView } from '../../hooks/useInView';
-import { Gem, Palette, Users, Lightbulb, Sparkles } from 'lucide-react';
+import { Gem, Palette, Users, Lightbulb, Sparkles, Calendar, Phone } from 'lucide-react';
 import './About.css';
 
 const About: React.FC = () => {
@@ -170,21 +170,40 @@ const About: React.FC = () => {
         </div>
       </section>
 
-      {/* CTA */}
-      <section className="section about-cta">
-        <div className="about-cta__bg"></div>
-        <div className="container about-cta__content">
-          <h2 className="about-cta__title">Ready to Find Your Dream Bridal Look?</h2>
-          <p className="about-cta__desc">
-            Visit our boutique in Udaipur and let us help you discover the perfect ensemble for your special day.
-          </p>
-          <div className="about-cta__actions">
-            <Link to="/contact" className="btn btn-gold" id="about-cta-btn">
-              Schedule a Visit
-            </Link>
-            <Link to="/services" className="btn btn-secondary" id="about-services-btn">
-              Browse Collections
-            </Link>
+      {/* CTA section from Home */}
+      <section className="section cta-section" id="cta-section">
+        <div className="cta-section__bg">
+          <img src="/hero/jewelry.png" alt="Premium Bridal Fashion" className="cta-section__bg-img" loading="lazy" />
+          <div className="cta-section__overlay"></div>
+          <div className="cta-section__glow cta-section__glow--1"></div>
+          <div className="cta-section__glow cta-section__glow--2"></div>
+          <div className="cta-section__particles"></div>
+        </div>
+        <div className="container cta-section__content animate-fade-in-up">
+          <div className="cta-section__glass-box">
+            <span className="cta-section__badge">
+              <Sparkles size={12} className="inline-block mr-2" />
+              Limited Period Collection
+              <Sparkles size={12} className="inline-block ml-2" />
+            </span>
+            <h2 className="cta-section__title">
+              Your Dream Bridal Look<br />
+              <span className="cta-section__title-accent">Awaits You</span>
+            </h2>
+            <p className="cta-section__desc">
+              Book a private appointment and explore our exclusive collection in a luxurious, 
+              stress-free environment. Let us help you find the one.
+            </p>
+            <div className="cta-section__actions">
+              <Link to="/contact" className="btn btn-gold cta-section__btn-primary" id="cta-book-btn">
+                <Calendar size={18} />
+                Book Your Appointment
+              </Link>
+              <a href="tel:9950889370" className="btn btn-outline cta-section__btn-secondary" id="cta-call-btn">
+                <Phone size={18} />
+                Call: 9950889370
+              </a>
+            </div>
           </div>
         </div>
       </section>
