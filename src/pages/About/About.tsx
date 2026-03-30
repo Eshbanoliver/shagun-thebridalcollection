@@ -9,6 +9,7 @@ const About: React.FC = () => {
   const [storyRef, storyInView] = useInView();
   const [valuesRef, valuesInView] = useInView();
   const [teamRef, teamInView] = useInView();
+  const [heritageRef, heritageInView] = useInView();
 
   const values = [
     { icon: <Gem size={32} />, title: 'Premium Quality', desc: 'We source and craft only the finest fabrics, ensuring every piece meets the highest standards of bridal fashion.', color: 'gold' },
@@ -177,8 +178,8 @@ const About: React.FC = () => {
       </section>
 
       {/* Heritage & Craftsmanship Section */}
-      <section className="section section-heritage">
-        <div className="container heritage-inner">
+      <section className="section section-heritage" ref={heritageRef}>
+        <div className={`container heritage-inner ${heritageInView ? 'animate-fade-in-up' : 'opacity-0'}`}>
           <div className="heritage__visual">
             <div className="heritage__frame">
               <img src="/about/craft-detail.png" alt="Heritage Craftsmanship" className="heritage__main-img" />
@@ -199,7 +200,11 @@ const About: React.FC = () => {
             </h2>
             <div className="heritage__grid">
               {crafts.map((c, i) => (
-                <div className="heritage__item" key={i}>
+                <div 
+                  className="heritage__item" 
+                  key={i}
+                  style={{ animationDelay: `${i * 0.2}s` }}
+                >
                   <div className="heritage__item-dot"></div>
                   <div className="heritage__item-text">
                     <h4>{c.title}</h4>
