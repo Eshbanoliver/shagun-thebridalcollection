@@ -85,37 +85,50 @@ const Services: React.FC = () => {
         </div>
       </section>
 
-      {/* Availability Badge */}
-      <section className="section services-badge-section">
+      {/* Premium Highlight Badges */}
+      <section className="section services-feature-highlights">
         <div className="container">
-          <div className="services-badge-row">
-            <div className="services-badge-item glass-card">
-              <span className="services-badge-icon">
-                <Tag size={24} />
-              </span>
-              <div>
-                <h3>Available for Rent & Sale</h3>
-                <p>Flexible options to fit every budget</p>
+          <div className="services-feature-grid">
+            {[
+              {
+                icon: <Tag size={32} />,
+                title: 'Available for Rent & Sale',
+                desc: 'Flexible luxury options to fit every budget.',
+                color: 'gold',
+                label: 'Exclusive Deal'
+              },
+              {
+                icon: <Shirt size={32} />,
+                title: 'Lehengas | Sarees | Suits',
+                desc: 'Traditional elegance for every festive occasion.',
+                color: 'ruby',
+                label: 'Bridal Choice'
+              },
+              {
+                icon: <Gem size={32} />,
+                title: 'Gowns | Jewellery',
+                desc: 'Modern fusion and exquisite bridal finishes.',
+                color: 'indanthia',
+                label: 'Couture Art'
+              }
+            ].map((item, idx) => (
+              <div 
+                className={`feature-card feature-card--${item.color}`} 
+                key={idx}
+                style={{ animationDelay: `${idx * 0.1}s` }}
+              >
+                <div className="feature-card__glow"></div>
+                <div className="feature-card__badge">{item.label}</div>
+                <div className="feature-card__icon">
+                  {item.icon}
+                </div>
+                <div className="feature-card__content">
+                  <h3>{item.title}</h3>
+                  <p>{item.desc}</p>
+                </div>
+                <div className="feature-card__shape"></div>
               </div>
-            </div>
-            <div className="services-badge-item glass-card">
-              <span className="services-badge-icon">
-                <Shirt size={24} />
-              </span>
-              <div>
-                <h3>Lehengas | Sarees | Suits</h3>
-                <p>Traditional & Party Collections</p>
-              </div>
-            </div>
-            <div className="services-badge-item glass-card">
-              <span className="services-badge-icon">
-                <Gem size={24} />
-              </span>
-              <div>
-                <h3>Gowns | Dresses | Jewellery</h3>
-                <p>Modern Fusion & Bridal Finishes</p>
-              </div>
-            </div>
+            ))}
           </div>
         </div>
       </section>
