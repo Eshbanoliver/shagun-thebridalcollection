@@ -133,44 +133,81 @@ const Services: React.FC = () => {
         </div>
       </section>
 
-      {/* Services Detail */}
-      <section className="section section-cream" ref={servRef}>
+      {/* Artistic Collection Grid */}
+      <section className="section section-collections-artistic" ref={servRef}>
+        <div className="section-ornament section-ornament--top"></div>
         <div className="container">
           <SectionHeader
-            subtitle="What We Offer"
+            subtitle="The Shagun Edit"
             title="Our Exclusive Collections"
-            description="Every piece tells a story of love, tradition, and artistry."
+            description="Explore our curated masterpieces crafted with passion and heritage."
           />
-          <div className={`services-detail__list ${servInView ? 'animate-fade-in-up' : 'opacity-0'}`}>
-            {services.map((service, i) => (
-              <div className={`services-detail__card ${i % 2 === 1 ? 'services-detail__card--reverse' : ''}`} key={i}>
-                <div className="services-detail__visual">
-                  <div className="services-detail__visual-inner" style={{ background: service.gradient }}>
-                    <span className="services-detail__visual-icon">{service.icon}</span>
-                    <div className="services-detail__visual-decor"></div>
-                  </div>
+          
+          <div className={`collections-artistic-grid ${servInView ? 'animate-fade-in-up' : 'opacity-0'}`}>
+            {[
+              {
+                title: 'Bridal Lehengas',
+                category: 'Heritage Couture',
+                image: '/services/lehenga.png',
+                desc: 'Handcrafted Zardozi and Gota Patti masterpieces that define Indian royalty.',
+                features: ['Custom Fit', 'Pure Silk', 'Rental Available'],
+                badge: 'Signature'
+              },
+              {
+                title: 'Premium Gowns',
+                category: 'Modern Fusion',
+                image: '/services/gowns.png',
+                desc: 'Ethereal silhouettes blending international trends with traditional Indian grace.',
+                features: ['Reception Wear', 'Exquisite Beadwork'],
+                badge: 'New Launch'
+              },
+              {
+                title: 'Exquisite Jewellery',
+                category: 'Bridal Finishes',
+                image: '/services/jewellery.png',
+                desc: 'Complete your bridal look with our curated sets of Kundan and Jadau jewellery.',
+                features: ['Kundan Sets', 'Polki Art', 'Gold Plated'],
+                badge: 'Trending'
+              },
+              {
+                title: 'Designer Sarees',
+                category: 'Timeless Drapes',
+                image: '/hero/boutique.png',
+                desc: 'From Banarasi silks to modern organza, find the perfect drape for every occasion.',
+                features: ['Hand-Woven', 'Luxury Borders'],
+                badge: 'Artisanal'
+              }
+            ].map((collection, i) => (
+              <div className="collection-art-card" key={i}>
+                <div className="collection-art-card__visual">
+                  <img src={collection.image} alt={collection.title} />
+                  <div className="collection-art-card__overlay"></div>
+                  <div className="collection-art-card__badge">{collection.badge}</div>
                 </div>
-                <div className="services-detail__info">
-                  <h3 className="services-detail__title">{service.title}</h3>
-                  <p className="services-detail__desc">{service.desc}</p>
-                  <ul className="services-detail__features">
-                    {service.features.map((f, j) => (
+                <div className="collection-art-card__content">
+                  <span className="collection-art-card__category">{collection.category}</span>
+                  <h3 className="collection-art-card__title">{collection.title}</h3>
+                  <p className="collection-art-card__desc">{collection.desc}</p>
+                  <ul className="collection-art-card__features">
+                    {collection.features.map((f, j) => (
                       <li key={j}>
-                        <span className="services-detail__check">
-                          <Check size={14} />
-                        </span>
+                        <Check size={14} className="mr-2 text-gold" />
                         {f}
                       </li>
                     ))}
                   </ul>
-                  <Link to="/contact" className="btn btn-outline services-detail__btn">
-                    Enquire Now
-                  </Link>
+                  <div className="collection-art-card__actions">
+                    <Link to="/contact" className="btn btn-gold collection-art-card__btn">
+                      <Phone size={16} className="mr-2" />
+                      Contact Us
+                    </Link>
+                  </div>
                 </div>
               </div>
             ))}
           </div>
         </div>
+        <div className="section-ornament section-ornament--bottom"></div>
       </section>
 
       {/* Why Choose Us */}
