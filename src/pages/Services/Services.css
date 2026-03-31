@@ -464,22 +464,76 @@
   box-shadow: 0 15px 30px rgba(212, 168, 83, 0.3);
 }
 
-@media (max-width: 992px) {
+@media (max-width: 768px) {
   .collections-artistic-grid {
     grid-template-columns: 1fr;
-    gap: 70px;
+    gap: 50px;
   }
 }
 
 @media (max-width: 600px) {
   .collection-editorial-card {
-    padding: 25px;
+    padding: 24px;
+    border-radius: 32px;
+    transform: none !important;
+    border-color: var(--gold) !important;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
   }
+
+  /* Disable hover animations on mobile */
+  .collection-editorial-card:hover {
+    transform: none !important;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
+  }
+
+  /* Transparent but visible background text for mobile */
   .collection-editorial-card__bg-text {
-    font-size: 7rem;
+    font-size: 6rem;
+    opacity: 0.03 !important;
+    filter: none !important;
+    transform: translate(-50%, -40%) !important;
+    letter-spacing: 0 !important;
+    display: block !important;
   }
+
+  /* Golden Frame Reveal (Hidden on mobile to avoid clutter) */
+  .collection-editorial-card::before {
+    display: none !important;
+  }
+
+  .collection-editorial-card__visual {
+    aspect-ratio: 16/10;
+    margin-bottom: 25px;
+  }
+
   .collection-editorial-card__title {
     font-size: 1.8rem;
+    line-height: 1.2;
+  }
+
+  .collection-editorial-card__desc {
+    font-size: 0.95rem;
+    margin-bottom: 20px;
+  }
+
+  /* Make features visible by default on mobile */
+  .collection-editorial-card__features li {
+    opacity: 1 !important;
+    transform: translateY(0) !important;
+    background: var(--off-white);
+    border-color: rgba(212, 168, 83, 0.2);
+    padding: 6px 14px;
+    font-size: 0.75rem;
+  }
+
+  .collection-editorial-card__actions {
+    padding-top: 25px;
+  }
+
+  .collection-editorial-card__btn {
+    padding: 14px 0;
+    font-size: 0.9rem;
+    letter-spacing: 2px !important;
   }
 }
 
