@@ -252,70 +252,116 @@
   display: flex;
   flex-direction: column;
   background: var(--white);
-  border: 1px solid rgba(212, 168, 83, 0.12);
-  border-radius: 32px;
-  padding: 24px;
-  transition: all 0.6s cubic-bezier(0.19, 1, 0.22, 1);
-  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.03);
+  border-radius: 36px;
+  padding: 28px;
+  transition: all 0.7s cubic-bezier(0.19, 1, 0.22, 1);
+  box-shadow: 0 15px 50px rgba(0, 0, 0, 0.04);
   height: 100%;
-  overflow: hidden; /* For bg text */
+  overflow: hidden;
+  border: 1px solid rgba(212, 168, 83, 0.1);
+  z-index: 1;
+}
+
+/* Animated Liquid Border (Pseudo-Border) */
+.collection-editorial-card::before {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  background: conic-gradient(from 0deg, 
+    transparent 0deg, 
+    var(--gold) 45deg, 
+    transparent 90deg, 
+    var(--gold) 180deg, 
+    transparent 270deg, 
+    var(--gold) 360deg
+  );
+  border-radius: inherit;
+  z-index: -1;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  animation: rotateBorder 4s linear infinite;
+}
+
+.collection-editorial-card:hover::before {
+  opacity: 0.6;
 }
 
 .collection-editorial-card:hover {
-  transform: translateY(-12px);
-  border-color: var(--gold);
-  box-shadow: 0 30px 60px rgba(212, 168, 83, 0.15);
+  transform: translateY(-15px) scale(1.02);
+  box-shadow: 0 40px 80px rgba(212, 168, 83, 0.18);
+  border-color: transparent;
+}
+
+/* Sweeping Light Effect */
+.collection-editorial-card::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -150%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+  transform: skewX(-25deg);
+  pointer-events: none;
+  z-index: 10;
+}
+
+.collection-editorial-card:hover::after {
+  animation: shineSweep 1.5s ease-in-out forwards;
 }
 
 .collection-editorial-card__bg-text {
   position: absolute;
-  top: 10%;
-  right: -5%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(-10deg);
   font-family: var(--font-heading);
-  font-size: 8rem;
+  font-size: 10rem;
   font-weight: 900;
-  color: rgba(0, 0, 0, 0.02);
+  color: rgba(0, 0, 0, 0.015);
   pointer-events: none;
   z-index: 0;
   white-space: nowrap;
-  transition: all 0.8s ease;
-  letter-spacing: -5px;
+  transition: all 1s cubic-bezier(0.19, 1, 0.22, 1);
+  letter-spacing: -2px;
 }
 
 .collection-editorial-card:hover .collection-editorial-card__bg-text {
-  transform: translateX(-30px);
-  color: rgba(212, 168, 83, 0.05);
+  transform: translate(-45%, -50%) rotate(0deg) scale(1.1);
+  color: rgba(212, 168, 83, 0.08);
 }
 
 .collection-editorial-card__visual {
   position: relative;
   aspect-ratio: 16/11;
-  border-radius: 20px;
+  border-radius: 24px;
   overflow: hidden;
-  margin-bottom: 25px;
+  margin-bottom: 30px;
   z-index: 2;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
 }
 
 .collection-editorial-card__visual img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform 1.5s cubic-bezier(0.19, 1, 0.22, 1);
+  transition: transform 1.5s ease;
 }
 
 .collection-editorial-card:hover .collection-editorial-card__visual img {
-  transform: scale(1.1);
+  transform: scale(1.15) rotate(1deg);
 }
 
-/* Ornate Corner Flourishes */
+/* Ornate Flouishes */
 .collection-editorial-card__flourish {
   position: absolute;
-  width: 50px;
-  height: 50px;
-  border: 2px solid var(--gold);
+  width: 60px;
+  height: 60px;
+  border: 4px double var(--gold);
+  border-radius: 12px;
   opacity: 0;
-  transition: all 0.5s ease;
-  z-index: 3;
+  transition: all 0.6s ease;
+  z-index: 5;
 }
 
 .collection-editorial-card__flourish.tl {
@@ -323,7 +369,7 @@
   left: 15px;
   border-right: none;
   border-bottom: none;
-  transform: translate(-10px, -10px);
+  transform: rotate(-15deg);
 }
 
 .collection-editorial-card__flourish.br {
@@ -331,18 +377,18 @@
   right: 15px;
   border-left: none;
   border-top: none;
-  transform: translate(10px, 10px);
+  transform: rotate(15deg);
 }
 
 .collection-editorial-card:hover .collection-editorial-card__flourish {
-  opacity: 0.8;
-  transform: translate(0, 0);
+  opacity: 1;
+  transform: rotate(0);
 }
 
 .collection-editorial-card__overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(to top, rgba(13, 13, 13, 0.6) 0%, transparent 60%);
+  background: linear-gradient(to top, rgba(13, 10, 5, 0.65) 0%, transparent 60%);
   opacity: 0;
   transition: opacity 0.5s ease;
 }
@@ -353,122 +399,131 @@
 
 .collection-editorial-card__badge {
   position: absolute;
-  top: 20px;
-  left: 20px;
+  top: 25px;
+  left: 25px;
   background: var(--gold);
   color: var(--white);
-  padding: 6px 18px;
+  padding: 8px 20px;
   border-radius: 100px;
   font-family: var(--font-accent);
-  font-size: 0.75rem;
+  font-size: 0.8rem;
   font-weight: 700;
   letter-spacing: 1px;
   text-transform: uppercase;
-  z-index: 4;
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  z-index: 6;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
 }
 
 .collection-editorial-card__content {
   position: relative;
   z-index: 2;
-  padding: 0 10px;
+  padding: 0 5px;
   display: flex;
   flex-direction: column;
   flex-grow: 1;
 }
 
 .collection-editorial-card__header {
-  margin-bottom: 15px;
+  margin-bottom: 20px;
   transition: transform 0.4s ease;
 }
 
 .collection-editorial-card:hover .collection-editorial-card__header {
-  transform: translateY(-5px);
+  transform: translateX(5px);
 }
 
 .collection-editorial-card__category {
   display: block;
   font-family: var(--font-accent);
   color: var(--gold-dark);
-  font-size: 0.85rem;
-  letter-spacing: 2.5px;
+  font-size: 0.9rem;
+  letter-spacing: 3px;
   text-transform: uppercase;
-  margin-bottom: 6px;
+  margin-bottom: 8px;
   font-weight: 600;
 }
 
 .collection-editorial-card__title {
   font-family: var(--font-heading);
-  font-size: 1.8rem;
+  font-size: 2rem;
   color: var(--charcoal);
-  line-height: 1.2;
+  line-height: 1.1;
 }
 
 .collection-editorial-card__desc {
-  font-size: 0.95rem;
-  color: var(--dark-gray);
-  line-height: 1.7;
-  margin-bottom: 20px;
+  font-size: 1.05rem;
+  color: var(--medium-gray);
+  line-height: 1.6;
+  margin-bottom: 25px;
   flex-grow: 1;
-  opacity: 0.85;
 }
 
 .collection-editorial-card__features {
   display: flex;
   flex-wrap: wrap;
-  gap: 10px;
-  margin-bottom: 30px;
+  gap: 12px;
+  margin-bottom: 35px;
 }
 
 .collection-editorial-card__features li {
   display: flex;
   align-items: center;
-  font-size: 0.8rem;
+  font-size: 0.85rem;
   color: var(--charcoal);
-  background: var(--off-white);
-  padding: 6px 14px;
-  border-radius: 10px;
-  border: 1px solid rgba(0, 0, 0, 0.03);
+  background: var(--white);
+  padding: 8px 16px;
+  border-radius: 12px;
+  border: 1px solid rgba(212, 168, 83, 0.15);
   transition: all 0.3s ease;
 }
 
 .collection-editorial-card:hover .collection-editorial-card__features li {
-  border-color: rgba(212, 168, 83, 0.2);
-  transform: scale(1.05);
+  background: var(--off-white);
+  border-color: var(--gold);
 }
 
 .collection-editorial-card__actions {
   margin-top: auto;
-  padding-top: 25px;
-  border-top: 1px solid rgba(0, 0, 0, 0.06);
+  padding-top: 30px;
+  border-top: 1px solid rgba(0, 0, 0, 0.08);
 }
 
 .collection-editorial-card__btn {
   width: 100%;
   justify-content: center;
-  font-size: 0.95rem;
+  padding: 16px 0;
+  font-size: 1rem;
   font-weight: 800;
-  letter-spacing: 1.5px;
-  text-transform: uppercase;
-  padding: 14px 0;
+  letter-spacing: 2px;
+}
+
+@keyframes rotateBorder {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes shineSweep {
+  0% { left: -150%; }
+  100% { left: 150%; }
 }
 
 @media (max-width: 992px) {
   .collections-artistic-grid {
     grid-template-columns: 1fr;
-    gap: 50px;
+    gap: 60px;
   }
 }
 
 @media (max-width: 600px) {
   .collection-editorial-card {
-    padding: 16px;
+    padding: 20px;
+    border-radius: 30px;
   }
   .collection-editorial-card__bg-text {
-    font-size: 5rem;
+    font-size: 6rem;
   }
   .collection-editorial-card__title {
-    font-size: 1.5rem;
+    font-size: 1.7rem;
   }
 }
 
