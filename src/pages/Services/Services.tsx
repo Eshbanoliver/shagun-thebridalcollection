@@ -213,21 +213,60 @@ const Services: React.FC = () => {
       {/* Why Choose Us */}
       <WhyChooseUs />
 
-      {/* Process */}
-      <section className="section section-dark" ref={processRef}>
+      {/* Vibrant Journey Roadmap */}
+      <section className="section section-dark services-process-vibrant" ref={processRef}>
+        <div className="process-vibrant__bg-glows">
+          <div className="process-vibrant__glow-1"></div>
+          <div className="process-vibrant__glow-2"></div>
+        </div>
         <div className="container">
           <SectionHeader
-            subtitle="How It Works"
-            title="Your Bridal Journey"
+            subtitle="The Journey"
+            title="Your Bridal Roadmap"
             light
+            description="From the first consultation to your grand reveal, we ensure perfection at every step."
           />
-          <div className={`services-process__grid ${processInView ? 'animate-fade-in-up' : 'opacity-0'}`}>
-            {process.map((p, i) => (
-              <div className="services-process__item" key={i}>
-                <div className="services-process__step">{p.step}</div>
-                <h4 className="services-process__title">{p.title}</h4>
-                <p className="services-process__desc">{p.desc}</p>
-                {i < process.length - 1 && <div className="services-process__connector"></div>}
+          <div className={`process-vibrant__grid ${processInView ? 'animate-fade-in-up' : 'opacity-0'}`}>
+            {[
+              { 
+                step: '01', 
+                title: 'Book Appointment', 
+                desc: 'Schedule a private consultation at our boutique.',
+                icon: <Calendar size={28} />,
+                color: 'emerald'
+              },
+              { 
+                step: '02', 
+                title: 'Explore & Try', 
+                desc: 'Browse our collection with expert styling guidance.',
+                icon: <Palette size={28} />,
+                color: 'saffron'
+              },
+              { 
+                step: '03', 
+                title: 'Perfect Fit', 
+                desc: 'Custom alterations for a flawless, regal silhouette.',
+                icon: <Scissors size={28} />,
+                color: 'ruby'
+              },
+              { 
+                step: '04', 
+                title: 'Grand Reveal', 
+                desc: 'Walk down the aisle with absolute confidence!',
+                icon: <Heart size={28} />,
+                color: 'gold'
+              }
+            ].map((p, i) => (
+              <div className={`process-vibrant__card card-color-${p.color}`} key={i}>
+                <div className="process-vibrant__card-inner glass-card-dark">
+                  <div className="process-vibrant__step-num">{p.step}</div>
+                  <div className="process-vibrant__icon-box">
+                    {p.icon}
+                  </div>
+                  <h4 className="process-vibrant__title">{p.title}</h4>
+                  <p className="process-vibrant__desc">{p.desc}</p>
+                </div>
+                {i < 3 && <div className="process-vibrant__arrow"></div>}
               </div>
             ))}
           </div>
