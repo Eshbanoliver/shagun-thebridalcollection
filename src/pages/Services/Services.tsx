@@ -151,7 +151,8 @@ const Services: React.FC = () => {
                 image: '/services/lehenga.png',
                 desc: 'Handcrafted Zardozi and Gota Patti masterpieces that define Indian royalty.',
                 features: ['Custom Fit', 'Pure Silk', 'Rental Available'],
-                badge: 'Signature'
+                badge: 'Signature',
+                bgText: 'HERITAGE'
               },
               {
                 title: 'Premium Gowns',
@@ -159,15 +160,17 @@ const Services: React.FC = () => {
                 image: '/services/gowns.png',
                 desc: 'Ethereal silhouettes blending international trends with traditional Indian grace.',
                 features: ['Reception Wear', 'Exquisite Beadwork'],
-                badge: 'New Launch'
+                badge: 'New Launch',
+                bgText: 'MODERN'
               },
               {
                 title: 'Exquisite Jewellery',
                 category: 'Bridal Finishes',
                 image: '/services/jewellery.png',
-                desc: 'Complete your bridal look with our curated sets of Kundan and Jadau jewellery.',
+                desc: 'Complete your bridal look with our sets of Kundan and Jadau jewellery.',
                 features: ['Kundan Sets', 'Polki Art', 'Gold Plated'],
-                badge: 'Trending'
+                badge: 'Trending',
+                bgText: 'ROYAL'
               },
               {
                 title: 'Designer Sarees',
@@ -175,20 +178,31 @@ const Services: React.FC = () => {
                 image: '/hero/boutique.png',
                 desc: 'From Banarasi silks to modern organza, find the perfect drape for every occasion.',
                 features: ['Hand-Woven', 'Luxury Borders'],
-                badge: 'Artisanal'
+                badge: 'Artisanal',
+                bgText: 'TIMELESS'
               }
             ].map((collection, i) => (
-              <div className="collection-art-card" key={i}>
-                <div className="collection-art-card__visual">
+              <div className="collection-editorial-card" key={i}>
+                <div className="collection-editorial-card__bg-text">{collection.bgText}</div>
+                
+                <div className="collection-editorial-card__visual">
                   <img src={collection.image} alt={collection.title} />
-                  <div className="collection-art-card__overlay"></div>
-                  <div className="collection-art-card__badge">{collection.badge}</div>
+                  <div className="collection-editorial-card__overlay"></div>
+                  <div className="collection-editorial-card__badge">{collection.badge}</div>
+                  {/* Ornate Corner Accents */}
+                  <div className="collection-editorial-card__flourish tl"></div>
+                  <div className="collection-editorial-card__flourish br"></div>
                 </div>
-                <div className="collection-art-card__content">
-                  <span className="collection-art-card__category">{collection.category}</span>
-                  <h3 className="collection-art-card__title">{collection.title}</h3>
-                  <p className="collection-art-card__desc">{collection.desc}</p>
-                  <ul className="collection-art-card__features">
+
+                <div className="collection-editorial-card__content">
+                  <div className="collection-editorial-card__header">
+                    <span className="collection-editorial-card__category">{collection.category}</span>
+                    <h3 className="collection-editorial-card__title">{collection.title}</h3>
+                  </div>
+                  
+                  <p className="collection-editorial-card__desc">{collection.desc}</p>
+                  
+                  <ul className="collection-editorial-card__features">
                     {collection.features.map((f, j) => (
                       <li key={j}>
                         <Check size={14} className="mr-2 text-gold" />
@@ -196,8 +210,9 @@ const Services: React.FC = () => {
                       </li>
                     ))}
                   </ul>
-                  <div className="collection-art-card__actions">
-                    <Link to="/contact" className="btn btn-gold collection-art-card__btn">
+
+                  <div className="collection-editorial-card__actions">
+                    <Link to="/contact" className="btn btn-gold collection-editorial-card__btn">
                       <Phone size={16} className="mr-2" />
                       Contact Us
                     </Link>
