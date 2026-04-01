@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Mail, Clock, Camera, Phone, Sparkles } from 'lucide-react';
+import { Mail, Clock, Phone, Sparkles } from 'lucide-react';
 import './Navbar.css';
 
 const Navbar: React.FC = () => {
@@ -59,8 +59,12 @@ const Navbar: React.FC = () => {
           <div className="navbar-top__right">
             <span className="navbar-top__label">Follow Us On :</span>
             <div className="navbar-top__social">
-              <a href="#" className="navbar-top__social-link">
-                <Camera size={16} />
+              <a href="https://www.instagram.com/shagun_the_bridal_collection/" className="navbar-top__social-link" target="_blank" rel="noopener">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                  <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                  <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                </svg>
               </a>
             </div>
           </div>
