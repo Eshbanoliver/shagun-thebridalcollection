@@ -47,7 +47,7 @@ const Footer: React.FC = () => {
                 and luxury together to make your special day truly unforgettable.
               </p>
               <div className="footer__social">
-                <a href="https://instagram.com" className="footer__social-link" aria-label="Instagram" target="_blank" rel="noopener">
+                <a href="https://www.instagram.com/shagun_the_bridal_collection/" className="footer__social-link" aria-label="Instagram" target="_blank" rel="noopener">
                   <Heart size={18} />
                 </a>
                 <a href="https://facebook.com" className="footer__social-link" aria-label="Facebook" target="_blank" rel="noopener">
