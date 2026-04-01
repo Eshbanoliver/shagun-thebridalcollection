@@ -2,28 +2,42 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import SectionHeader from '../../components/SectionHeader/SectionHeader';
 import { useInView } from '../../hooks/useInView';
-import { Plus, Minus, Phone, Sparkles, Tag, Calendar, Scissors, HelpCircle, ChevronRight } from 'lucide-react';
+import { Plus, Minus, Phone, Sparkles, Tag, Calendar, Scissors, HelpCircle, ChevronRight, Search, MessageSquare, ArrowRight } from 'lucide-react';
 import './FAQ.css';
 
 interface FAQItemProps {
+  index: number;
   question: string;
   answer: string;
   isOpen: boolean;
   onToggle: () => void;
 }
 
-const FAQItem: React.FC<FAQItemProps> = ({ question, answer, isOpen, onToggle }) => {
+const FAQItem: React.FC<FAQItemProps> = ({ index, question, answer, isOpen, onToggle }) => {
+  const displayIndex = (index + 1).toString().padStart(2, '0');
+  
   return (
     <div className={`faq-item ${isOpen ? 'faq-item--open' : ''}`}>
-      <button className="faq-item__question" onClick={onToggle} aria-expanded={isOpen}>
-        <span>{question}</span>
-        <span className="faq-item__icon">
-          {isOpen ? <Minus size={16} /> : <Plus size={16} />}
-        </span>
-      </button>
-      <div className="faq-item__answer-wrapper">
-        <div className="faq-item__answer">
-          <p>{answer}</p>
+      <div className="faq-item__number">{displayIndex}</div>
+      <div className="faq-item__content-box">
+        <button className="faq-item__question" onClick={onToggle} aria-expanded={isOpen}>
+          <span>{question}</span>
+          <span className="faq-item__icon">
+            <Plus size={18} className={`plus-icon ${isOpen ? 'hidden' : ''}`} />
+            <Minus size={18} className={`minus-icon ${!isOpen ? 'hidden' : ''}`} />
+          </span>
+        </button>
+        <div className="faq-item__answer-wrapper">
+          <div className="faq-item__answer">
+            <p>{answer}</p>
+            <div className="faq-item__answer-footer">
+              <span className="helpful-text">Was this helpful?</span>
+              <div className="helpful-actions">
+                <button className="helpful-btn">Yes</button>
+                <button className="helpful-btn">No</button>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -32,6 +46,7 @@ const FAQItem: React.FC<FAQItemProps> = ({ question, answer, isOpen, onToggle })
 
 const FAQ: React.FC = () => {
   const [activeCategory, setActiveCategory] = useState('all');
+  const [searchQuery, setSearchQuery] = useState('');
   const [openIndex, setOpenIndex] = useState<string | null>('collections-0');
   const [ref, inView] = useInView();
 
@@ -106,9 +121,14 @@ const FAQ: React.FC = () => {
     }
   ];
 
-  const filteredCategories = activeCategory === 'all' 
-    ? faqCategories 
-    : faqCategories.filter(cat => cat.id === activeCategory);
+  const filteredCategories = faqCategories.map(category => ({
+    ...category,
+    faqs: category.faqs.filter(faq => 
+      (activeCategory === 'all' || category.id === activeCategory) &&
+      (faq.q.toLowerCase().includes(searchQuery.toLowerCase()) || 
+       faq.a.toLowerCase().includes(searchQuery.toLowerCase()))
+    )
+  })).filter(category => category.faqs.length > 0);
 
   return (
     <>
@@ -129,11 +149,37 @@ const FAQ: React.FC = () => {
       {/* FAQ Search & Filter */}
       <section className="section faq-interactive-container" ref={ref}>
         <div className="container">
-          <SectionHeader
-            subtitle="Explore Categories"
-            title="How Can We Help You?"
-            description="Browse our frequently asked questions organized by category to find exactly what you need."
-          />
+          <div className="faq-header-wrapper">
+            <SectionHeader
+              subtitle="Explore Categories"
+              title="How Can We Help You?"
+              description="Browse our frequently asked questions organized by category to find exactly what you need."
+            />
+            
+            {/* Search Bar */}
+            <div className={`faq-search-wrapper ${inView ? 'animate-fade-in-up' : 'opacity-0'}`}>
+              <div className="faq-search-input-container">
+                <Search className="search-icon" size={20} />
+                <input 
+                  type="text" 
+                  placeholder="Search for questions, keywords, or topics..." 
+                  className="faq-search-input"
+                  value={searchQuery}
+                  onChange={(e) => setSearchQuery(e.target.value)}
+                />
+                {searchQuery && (
+                  <button className="search-clear" onClick={() => setSearchQuery('')}>×</button>
+                )}
+              </div>
+              <div className="faq-search-tags">
+                <span className="tag-label">Popular:</span>
+                <button onClick={() => setSearchQuery('Jewellery')} className="search-tag">Jewellery</button>
+                <button onClick={() => setSearchQuery('Rent')} className="search-tag">Rent</button>
+                <button onClick={() => setSearchQuery('Appointment')} className="search-tag">Appointment</button>
+                <button onClick={() => setSearchQuery('Fitting')} className="search-tag">Fitting</button>
+              </div>
+            </div>
+          </div>
 
           <div className="faq-layout">
             {/* Category Sidebar */}
@@ -166,40 +212,67 @@ const FAQ: React.FC = () => {
 
               {/* Quick Contact Card */}
               <div className="quick-help-card">
-                <div className="quick-help-card__glow"></div>
-                <h4>Need More Help?</h4>
-                <p>Our team is available 10 AM - 8 PM for live support.</p>
-                <a href="tel:9950889370" className="quick-help-link">
-                  <Phone size={16} />
-                  9950889370
-                </a>
+                <div className="quick-help-card__icon-box">
+                  <MessageSquare size={24} />
+                </div>
+                <h4>Can't find answer?</h4>
+                <p>Don't worry! Our bridal consultants are here to guide you personally.</p>
+                <div className="quick-help-actions">
+                  <a href="tel:9950889370" className="quick-help-link">
+                    <Phone size={16} />
+                    Call Us
+                  </a>
+                  <Link to="/contact" className="quick-help-btn-minimal">
+                    Send Message <ArrowRight size={14} />
+                  </Link>
+                </div>
               </div>
             </div>
 
             {/* Questions Content */}
             <div className={`faq-main-content ${inView ? 'animate-fade-in-right' : 'opacity-0'}`}>
-              {filteredCategories.map((category) => (
-                <div key={category.id} className="faq-category-section">
-                  <h3 className="category-title-inline">
-                    <span className="category-title-icon">{category.icon}</span>
-                    {category.name}
-                  </h3>
-                  <div className="faq-items-grid">
-                    {category.faqs.map((faq, i) => {
-                      const itemKey = `${category.id}-${i}`;
-                      return (
-                        <FAQItem
-                          key={itemKey}
-                          question={faq.q}
-                          answer={faq.a}
-                          isOpen={openIndex === itemKey}
-                          onToggle={() => setOpenIndex(openIndex === itemKey ? null : itemKey)}
-                        />
-                      );
-                    })}
+              {filteredCategories.length > 0 ? (
+                filteredCategories.map((category) => (
+                  <div key={category.id} className="faq-category-section">
+                    <div className="category-header-banner">
+                      <h3 className="category-title-inline">
+                        <span className="category-title-icon">{category.icon}</span>
+                        {category.name}
+                      </h3>
+                      <span className="category-count">{category.faqs.length} Questions</span>
+                    </div>
+                    <div className="faq-items-grid">
+                      {category.faqs.map((faq, i) => {
+                        const itemKey = `${category.id}-${i}`;
+                        return (
+                          <FAQItem
+                            key={itemKey}
+                            index={i}
+                            question={faq.q}
+                            answer={faq.a}
+                            isOpen={openIndex === itemKey}
+                            onToggle={() => setOpenIndex(openIndex === itemKey ? null : itemKey)}
+                          />
+                        );
+                      })}
+                    </div>
                   </div>
+                ))
+              ) : (
+                <div className="faq-no-results">
+                  <div className="no-results-icon">
+                    <HelpCircle size={48} />
+                  </div>
+                  <h3>No matching questions found</h3>
+                  <p>Try searching for different keywords or browse all categories.</p>
+                  <button 
+                    className="btn btn-outline" 
+                    onClick={() => {setSearchQuery(''); setActiveCategory('all');}}
+                  >
+                    Reset Filter
+                  </button>
                 </div>
-              ))}
+              )}
             </div>
           </div>
         </div>
