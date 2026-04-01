@@ -50,7 +50,7 @@ const Footer: React.FC = () => {
                 <a href="https://www.instagram.com/shagun_the_bridal_collection/" className="footer__social-link" aria-label="Instagram" target="_blank" rel="noopener">
                   <Heart size={18} />
                 </a>
-                <a href="https://facebook.com" className="footer__social-link" aria-label="Facebook" target="_blank" rel="noopener">
+                <a href="https://www.facebook.com/people/Shagun-The-Bridals-Collection/61584509621597/#" className="footer__social-link" aria-label="Facebook" target="_blank" rel="noopener">
                   <Share2 size={18} />
                 </a>
                 <a href="tel:9950889370" className="footer__social-link" aria-label="Call us">
