@@ -212,18 +212,25 @@ const FAQ: React.FC = () => {
 
               {/* Quick Contact Card */}
               <div className="quick-help-card">
+                <div className="quick-help-card__glow-wrap">
+                  <div className="quick-help-card__glow-circle"></div>
+                </div>
+                <div className="quick-help-card__status">
+                  <span className="status-dot"></span>
+                  <span className="status-text">Live Support Available</span>
+                </div>
                 <div className="quick-help-card__icon-box">
-                  <MessageSquare size={24} />
+                  <MessageSquare size={28} className="contact-icon-main" />
                 </div>
                 <h4>Can't find answer?</h4>
-                <p>Don't worry! Our bridal consultants are here to guide you personally.</p>
+                <p>Our bridal consultants are online and ready to assist you in real-time.</p>
                 <div className="quick-help-actions">
                   <a href="tel:9950889370" className="quick-help-link">
                     <Phone size={16} />
-                    Call Us
+                    Call Us Now
                   </a>
                   <Link to="/contact" className="quick-help-btn-minimal">
-                    Send Message <ArrowRight size={14} />
+                    Send Message <ArrowRight size={14} className="arrow-icon" />
                   </Link>
                 </div>
               </div>
