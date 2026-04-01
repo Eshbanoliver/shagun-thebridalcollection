@@ -257,7 +257,7 @@
 }
 
 .navbar--scrolled .navbar-main__outer {
-  height: 75px;
+  height: 85px;
 }
 
 .navbar--scrolled .navbar-shagun {
@@ -314,15 +314,27 @@
   .navbar-shagun {
     background: linear-gradient(115deg, var(--white) 0%, var(--white) 50%, var(--cherry-red) 50%, var(--cherry-red) 100%);
     border-radius: var(--radius-md);
-    overflow: hidden;
+    height: 90px !important; /* Force height to prevent collapsing */
+    overflow: visible !important;
   }
 
   .navbar-shagun__brand-box {
     flex: 1;
+    min-width: 200px;
     clip-path: none;
-    border-radius: 4px 0 0 4px;
+    border-radius: var(--radius-md) 0 0 var(--radius-md);
     background: transparent;
-    padding-left: 24px;
+    padding: 0 15px;
+    display: flex;
+    align-items: center;
+    overflow: visible;
+  }
+
+  .navbar-shagun__logo {
+    height: 70px;
+    width: auto;
+    object-fit: contain;
+    display: block;
   }
   
   .navbar-shagun__nav-box {
@@ -340,12 +352,13 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-right: 20px;
+    margin-right: 15px;
     padding: 10px;
     border: none;
     cursor: pointer;
     background: rgba(255, 255, 255, 0.4);
     border-radius: 8px;
+    z-index: 10;
   }
 
   .navbar-shagun__hamburger span {
@@ -408,8 +421,6 @@
 }
 
 @media (max-width: 480px) {
-  .navbar-main__outer { height: 70px; }
-  .navbar-shagun__brand-name { font-size: 1.1rem; }
-  .navbar-shagun__brand-tagline { font-size: 0.6rem; }
-  .navbar-shagun__brand-icon { font-size: 1.4rem; }
+  .navbar-main__outer { height: 90px !important; }
+  .navbar--scrolled .navbar-main__outer { height: 90px !important; }
 }
