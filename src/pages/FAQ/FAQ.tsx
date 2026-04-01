@@ -79,13 +79,13 @@ const FAQ: React.FC = () => {
 
   return (
     <>
-      {/* Hero */}
+      {/* Hero Banner */}
       <section className="faq-hero">
         <div className="faq-hero__bg">
           <div className="faq-hero__overlay"></div>
         </div>
         <div className="faq-hero__content container">
-          <span className="faq-hero__badge">Help Center</span>
+          <span className="faq-hero__badge">✦ Help Center ✦</span>
           <h1 className="faq-hero__title">Frequently Asked<br />Questions</h1>
           <p className="faq-hero__subtitle">
             Everything you need to know about our bridal collection and services.
