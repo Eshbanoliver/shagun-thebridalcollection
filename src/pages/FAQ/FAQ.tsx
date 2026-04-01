@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import SectionHeader from '../../components/SectionHeader/SectionHeader';
 import { useInView } from '../../hooks/useInView';
-import { Plus, Minus, Phone } from 'lucide-react';
+import { Plus, Minus, Phone, Sparkles, Tag, Calendar, Scissors, HelpCircle, ChevronRight } from 'lucide-react';
 import './FAQ.css';
 
 interface FAQItemProps {
@@ -31,51 +31,84 @@ const FAQItem: React.FC<FAQItemProps> = ({ question, answer, isOpen, onToggle })
 }
 
 const FAQ: React.FC = () => {
-  const [openIndex, setOpenIndex] = useState(0);
+  const [activeCategory, setActiveCategory] = useState('all');
+  const [openIndex, setOpenIndex] = useState<string | null>('collections-0');
   const [ref, inView] = useInView();
 
-  const faqs = [
+  const faqCategories = [
     {
-      q: 'Do you offer bridal outfits on rent?',
-      a: 'Yes! We offer both rent and sale options for our entire collection including wedding lehengas, paushak, pre-wedding gowns, and bridal jewellery. Renting is a great option for brides who want premium quality at an affordable price.',
+      id: 'collections',
+      name: 'Collections & Products',
+      icon: <Sparkles size={20} />,
+      faqs: [
+        {
+          q: 'What types of bridal outfits do you have?',
+          a: 'We offer a wide range of bridal fashion including wedding lehengas, traditional Rajasthani paushak, pre-wedding gowns for photoshoots and receptions, and a curated collection of bridal jewellery to complete your look.',
+        },
+        {
+          q: 'Do you offer bridal jewellery separately?',
+          a: 'Yes, our bridal jewellery collection is available independently. You can rent or purchase individual pieces or complete sets including necklaces, earrings, maang tikka, bangles, and more.',
+        },
+        {
+          q: 'Can I see the collection before booking?',
+          a: 'Of course! You are welcome to visit our boutique at Orbit Garden Road, Udaipur for a complimentary browse. However, for a more personalized experience with dedicated styling assistance, we recommend booking an appointment.',
+        },
+      ]
     },
     {
-      q: 'How do I book a private appointment?',
-      a: 'You can book a private appointment by calling us at 9950889370 or 9079757782, or by visiting our Contact page. We recommend booking in advance, especially during wedding season, to ensure dedicated attention.',
+      id: 'rental',
+      name: 'Rental & Sale',
+      icon: <Tag size={20} />,
+      faqs: [
+        {
+          q: 'Do you offer bridal outfits on rent?',
+          a: 'Yes! We offer both rent and sale options for our entire collection including wedding lehengas, paushak, pre-wedding gowns, and bridal jewellery. Renting is a great option for brides who want premium quality at an affordable price.',
+        },
+        {
+          q: 'What is your return/exchange policy for rented items?',
+          a: 'Rented items must be returned within the agreed-upon rental period in their original condition. A security deposit is required at the time of rental, which is fully refundable upon the return of items in good condition.',
+        },
+        {
+          q: 'What is your price range?',
+          a: 'Our collection caters to various budgets. Whether you are looking for a premium designer piece or an affordable rental option, we have something for everyone. Contact us for specific pricing details.',
+        },
+      ]
     },
     {
-      q: 'What types of bridal outfits do you have?',
-      a: 'We offer a wide range of bridal fashion including wedding lehengas, traditional Rajasthani paushak, pre-wedding gowns for photoshoots and receptions, and a curated collection of bridal jewellery to complete your look.',
+      id: 'booking',
+      name: 'Booking & Appointments',
+      icon: <Calendar size={20} />,
+      faqs: [
+        {
+          q: 'How do I book a private appointment?',
+          a: 'You can book a private appointment by calling us at 9950889370 or 9079757782, or by visiting our Contact page. We recommend booking in advance, especially during wedding season, to ensure dedicated attention.',
+        },
+        {
+          q: 'How early should I book for my wedding?',
+          a: 'We recommend booking at least 2-3 months before your wedding date, especially during peak wedding season (October to March). This gives us enough time for fittings, alterations, and any customizations.',
+        },
+      ]
     },
     {
-      q: 'Do you provide custom fitting and alterations?',
-      a: 'Absolutely! We provide expert custom fitting and alterations for all our outfits. Our skilled tailors ensure every outfit fits you perfectly, so you feel comfortable and confident on your special day.',
-    },
-    {
-      q: 'Can I see the collection before booking?',
-      a: 'Of course! You are welcome to visit our boutique at Orbit Garden Road, Udaipur for a complimentary browse. However, for a more personalized experience with dedicated styling assistance, we recommend booking an appointment.',
-    },
-    {
-      q: 'Do you offer bridal jewellery separately?',
-      a: 'Yes, our bridal jewellery collection is available independently. You can rent or purchase individual pieces or complete sets including necklaces, earrings, maang tikka, bangles, and more.',
-    },
-    {
-      q: 'What is your price range?',
-      a: 'Our collection caters to various budgets. Whether you are looking for a premium designer piece or an affordable rental option, we have something for everyone. Contact us for specific pricing details.',
-    },
-    {
-      q: 'How early should I book for my wedding?',
-      a: 'We recommend booking at least 2-3 months before your wedding date, especially during peak wedding season (October to March). This gives us enough time for fittings, alterations, and any customizations.',
-    },
-    {
-      q: 'Do you provide home delivery?',
-      a: 'Currently, we offer in-store services at our Udaipur boutique. This ensures the best fitting and styling experience. For special requests, please contact us directly.',
-    },
-    {
-      q: 'What is your return/exchange policy for rented items?',
-      a: 'Rented items must be returned within the agreed-upon rental period in their original condition. A security deposit is required at the time of rental, which is fully refundable upon the return of items in good condition.',
-    },
+      id: 'fitting',
+      name: 'Fitting & Styling',
+      icon: <Scissors size={20} />,
+      faqs: [
+        {
+          q: 'Do you provide custom fitting and alterations?',
+          a: 'Absolutely! We provide expert custom fitting and alterations for all our outfits. Our skilled tailors ensure every outfit fits you perfectly, so you feel comfortable and confident on your special day.',
+        },
+        {
+          q: 'Do you provide home delivery?',
+          a: 'Currently, we offer in-store services at our Udaipur boutique. This ensures the best fitting and styling experience. For special requests, please contact us directly.',
+        },
+      ]
+    }
   ];
+
+  const filteredCategories = activeCategory === 'all' 
+    ? faqCategories 
+    : faqCategories.filter(cat => cat.id === activeCategory);
 
   return (
     <>
@@ -93,42 +126,119 @@ const FAQ: React.FC = () => {
         </div>
       </section>
 
-      {/* FAQ List */}
-      <section className="section section-gradient" ref={ref}>
+      {/* FAQ Search & Filter */}
+      <section className="section faq-interactive-container" ref={ref}>
         <div className="container">
           <SectionHeader
-            subtitle="Got Questions?"
-            title="We've Got Answers"
-            description="Find answers to the most common questions about our bridal fashion services."
+            subtitle="Explore Categories"
+            title="How Can We Help You?"
+            description="Browse our frequently asked questions organized by category to find exactly what you need."
           />
-          <div className={`faq-list ${inView ? 'animate-fade-in-up' : 'opacity-0'}`}>
-            {faqs.map((faq, i) => (
-              <FAQItem
-                key={i}
-                question={faq.q}
-                answer={faq.a}
-                isOpen={openIndex === i}
-                onToggle={() => setOpenIndex(openIndex === i ? -1 : i)}
-              />
-            ))}
+
+          <div className="faq-layout">
+            {/* Category Sidebar */}
+            <div className={`faq-sidebar ${inView ? 'animate-fade-in-left' : 'opacity-0'}`}>
+              <div className="category-list">
+                <button 
+                  className={`category-btn ${activeCategory === 'all' ? 'active' : ''}`}
+                  onClick={() => setActiveCategory('all')}
+                >
+                  <div className="category-btn__icon">
+                    <HelpCircle size={18} />
+                  </div>
+                  <span>All Questions</span>
+                  <ChevronRight size={14} className="category-btn__arrow" />
+                </button>
+                {faqCategories.map((cat) => (
+                  <button 
+                    key={cat.id}
+                    className={`category-btn ${activeCategory === cat.id ? 'active' : ''}`}
+                    onClick={() => setActiveCategory(cat.id)}
+                  >
+                    <div className="category-btn__icon">
+                      {cat.icon}
+                    </div>
+                    <span>{cat.name}</span>
+                    <ChevronRight size={14} className="category-btn__arrow" />
+                  </button>
+                ))}
+              </div>
+
+              {/* Quick Contact Card */}
+              <div className="quick-help-card">
+                <div className="quick-help-card__glow"></div>
+                <h4>Need More Help?</h4>
+                <p>Our team is available 10 AM - 8 PM for live support.</p>
+                <a href="tel:9950889370" className="quick-help-link">
+                  <Phone size={16} />
+                  9950889370
+                </a>
+              </div>
+            </div>
+
+            {/* Questions Content */}
+            <div className={`faq-main-content ${inView ? 'animate-fade-in-right' : 'opacity-0'}`}>
+              {filteredCategories.map((category) => (
+                <div key={category.id} className="faq-category-section">
+                  <h3 className="category-title-inline">
+                    <span className="category-title-icon">{category.icon}</span>
+                    {category.name}
+                  </h3>
+                  <div className="faq-items-grid">
+                    {category.faqs.map((faq, i) => {
+                      const itemKey = `${category.id}-${i}`;
+                      return (
+                        <FAQItem
+                          key={itemKey}
+                          question={faq.q}
+                          answer={faq.a}
+                          isOpen={openIndex === itemKey}
+                          onToggle={() => setOpenIndex(openIndex === itemKey ? null : itemKey)}
+                        />
+                      );
+                    })}
+                  </div>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </section>
 
-      {/* CTA */}
-      <section className="section faq-cta">
-        <div className="faq-cta__bg"></div>
-        <div className="container faq-cta__content">
-          <h2>Still Have Questions?</h2>
-          <p>We'd love to hear from you. Reach out and our team will get back to you shortly.</p>
-          <div className="faq-cta__actions">
-            <Link to="/contact" className="btn btn-gold" id="faq-contact-btn">
-              Contact Us
-            </Link>
-            <a href="tel:9950889370" className="btn btn-secondary">
-              <Phone size={18} />
-              Call: 9950889370
-            </a>
+      {/* CTA Section from About/Home */}
+      <section className="section cta-section" id="cta-section">
+        <div className="cta-section__bg">
+          <img src="/hero/jewelry.png" alt="Premium Bridal Fashion" className="cta-section__bg-img" loading="lazy" />
+          <div className="cta-section__overlay"></div>
+          <div className="cta-section__glow cta-section__glow--1"></div>
+          <div className="cta-section__glow cta-section__glow--2"></div>
+          <div className="cta-section__particles"></div>
+        </div>
+        <div className="container cta-section__content">
+          <div className="cta-section__glass-box">
+            <span className="cta-section__badge">
+              <Sparkles size={12} className="inline-block mr-2" />
+              Limited Period Collection
+              <Sparkles size={12} className="inline-block ml-2" />
+            </span>
+            <h2 className="cta-section__title">
+              Your Dream Bridal Look<br />
+              <span className="cta-section__title-accent">Awaits You</span>
+            </h2>
+            <p className="cta-section__desc">
+              Book a private appointment and explore our exclusive collection in a luxurious, 
+              stress-free environment. Let us help you find the one.
+            </p>
+            <div className="cta-section__actions">
+              <Link to="/contact" className="btn btn-gold cta-section__btn-primary">
+                <Calendar size={18} />
+                Book Your Appointment
+              </Link>
+              <a href="tel:9950889370" className="btn btn-outline cta-section__btn-secondary">
+                <Phone size={18} />
+                Call: 9950889370
+              </a>
+            </div>
           </div>
         </div>
       </section>
