@@ -104,13 +104,18 @@
 
 @media (max-width: 640px) {
   .floating-buttons {
-    left: 12px;
+    left: 16px;
     bottom: 80px;
+    gap: 16px;
   }
 
   .floating-btn {
-    width: 46px;
-    height: 46px;
+    width: 58px;
+    height: 58px;
+  }
+
+  .floating-btn svg {
+    transform: scale(1.1);
   }
 
   .floating-btn__label {
