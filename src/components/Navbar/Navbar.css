@@ -157,33 +157,19 @@
 .navbar-shagun__brand {
   display: flex;
   align-items: center;
-  gap: 12px;
+  height: 100%;
 }
 
-.navbar-shagun__brand-icon {
-  font-size: 1.8rem;
-  color: var(--brown);
+.navbar-shagun__logo {
+  height: 75px;
+  width: auto;
+  object-fit: contain;
+  /* Filter desaturation removed to show real logo colors if needed, but keeping it clean */
+  transition: transform 0.3s ease;
 }
 
-.navbar-shagun__brand-text {
-  display: flex;
-  flex-direction: column;
-}
-
-.navbar-shagun__brand-name {
-  font-family: var(--font-heading);
-  font-size: 1.6rem;
-  color: var(--charcoal);
-  font-weight: 700;
-  line-height: 1.1;
-}
-
-.navbar-shagun__brand-tagline {
-  font-family: var(--font-accent);
-  font-size: 0.7rem;
-  color: var(--medium-gray);
-  text-transform: uppercase;
-  letter-spacing: 1px;
+.navbar-shagun__brand:hover .navbar-shagun__logo {
+  transform: scale(1.05);
 }
 
 /* Links Content */

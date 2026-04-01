@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Mail, Clock, Phone, Sparkles } from 'lucide-react';
+import { Mail, Clock, Phone } from 'lucide-react';
 import './Navbar.css';
 
 const Navbar: React.FC = () => {
@@ -79,13 +79,7 @@ const Navbar: React.FC = () => {
             {/* 1. Brand Section (Logo) - White Parallelogram */}
             <div className="navbar-shagun__brand-box">
               <Link to="/" className="navbar-shagun__brand">
-                <span className="navbar-shagun__brand-icon">
-                  <Sparkles size={24} />
-                </span>
-                <div className="navbar-shagun__brand-text">
-                  <span className="navbar-shagun__brand-name">Shagun</span>
-                  <span className="navbar-shagun__brand-tagline">The Bridal Collection</span>
-                </div>
+                <img src="/logo.png" alt="Shagun Logo" className="navbar-shagun__logo" />
               </Link>
             </div>
 

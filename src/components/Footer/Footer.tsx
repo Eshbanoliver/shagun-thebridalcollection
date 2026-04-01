@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Sparkles, Phone, Mail, ArrowRight, MapPin } from 'lucide-react';
+import { Phone, Mail, ArrowRight, MapPin } from 'lucide-react';
 import './Footer.css';
 
 const Footer: React.FC = () => {
@@ -34,13 +34,7 @@ const Footer: React.FC = () => {
             {/* Brand Column */}
             <div className="footer__col footer__col--brand">
               <Link to="/" className="footer__brand">
-                <span className="footer__brand-icon">
-                  <Sparkles size={20} />
-                </span>
-                <div>
-                  <h3 className="footer__brand-name">Shagun</h3>
-                  <p className="footer__brand-tagline">The Bridal Collection</p>
-                </div>
+                <img src="/logo.png" alt="Shagun Logo" className="footer__logo" />
               </Link>
               <p className="footer__brand-desc">
                 Udaipur's premier bridal fashion destination. We bring elegance, tradition, 
