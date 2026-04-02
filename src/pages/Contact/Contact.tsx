@@ -101,14 +101,14 @@ const Contact: React.FC = () => {
       </section>
 
       {/* Contact Form + Info */}
-      <section className="section section-cream">
+      <section className="section contact-form-section">
         <div className="container">
           <SectionHeader
             subtitle="Send a Message"
             title="Book Your Appointment"
             description="Fill the form below and our team will get back to you within 24 hours."
           />
-          <div className="contact-form-section">
+          <div className="contact-form-wrapper">
             <form className="contact-form glass-card" onSubmit={handleSubmit} id="contact-form">
               {submitted && (
                 <div className="contact-form__success">

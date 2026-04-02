@@ -247,10 +247,26 @@
   letter-spacing: 0.5px;
 }
 
-.section-cream {
-  background: linear-gradient(135deg, #fcfaf8 0%, #fff5f7 100%);
+.contact-form-section {
+  padding: 120px 0;
+  background: var(--off-white); /* Base color below the image */
   position: relative;
   overflow: hidden;
+}
+
+.contact-form-section::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: url('/contact-form-bg.png') no-repeat center center / cover;
+  opacity: 0.5;
+  z-index: 0;
+  filter: blur(4px) saturate(1.2); /* Soften the focus to let the form pop */
+}
+
+.contact-form-section .container {
+  position: relative;
+  z-index: 2;
 }
 
 /* Decorative background elements for form */
@@ -276,8 +292,8 @@
   transform: rotate(-15deg);
 }
 
-/* Contact Form Container */
-.contact-form-section {
+/* Contact Form Wrapper - Constrained for readability */
+.contact-form-wrapper {
   max-width: 900px;
   margin: 0 auto;
   position: relative;
