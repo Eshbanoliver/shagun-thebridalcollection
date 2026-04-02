@@ -409,39 +409,21 @@
 
 /* Map */
 .contact-map {
-  border-radius: var(--radius-lg);
+  border-radius: 40px;
   overflow: hidden;
-}
-
-.contact-map__placeholder {
-  background: rgba(255, 255, 255, 0.05);
+  box-shadow: 0 40px 100px rgba(0, 0, 0, 0.4);
+  background: rgba(255, 255, 255, 0.02);
   border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: var(--radius-lg);
-  padding: 60px 40px;
-  text-align: center;
 }
 
-.contact-map__icon {
-  font-size: 3rem;
-  margin-bottom: 20px;
+.contact-map iframe {
+  display: block;
+  filter: grayscale(0.2) contrast(1.1);
+  transition: filter 0.5s ease;
 }
 
-.contact-map__placeholder h3 {
-  font-family: var(--font-heading);
-  font-size: 1.3rem;
-  color: var(--white);
-  margin-bottom: 12px;
-}
-
-.contact-map__placeholder p {
-  font-size: 0.9rem;
-  color: rgba(255, 255, 255, 0.55);
-  line-height: 1.7;
-  margin-bottom: 28px;
-}
-
-.contact-map__btn {
-  display: inline-flex;
+.contact-map:hover iframe {
+  filter: grayscale(0) contrast(1);
 }
 
 /* Animations */
