@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <!-- Place your actual domain here once the site is deployed -->
+  <url>
+    <loc>https://shagunbridal.com/</loc>
+    <lastmod>2026-04-02</lastmod>
+    <priority>1.00</priority>
+  </url>
+  <url>
+    <loc>https://shagunbridal.com/about</loc>
+    <lastmod>2026-04-02</lastmod>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://shagunbridal.com/services</loc>
+    <lastmod>2026-04-02</lastmod>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://shagunbridal.com/faq</loc>
+    <lastmod>2026-04-02</lastmod>
+    <priority>0.70</priority>
+  </url>
+  <url>
+    <loc>https://shagunbridal.com/contact</loc>
+    <lastmod>2026-04-02</lastmod>
+    <priority>0.90</priority>
+  </url>
+</urlset>

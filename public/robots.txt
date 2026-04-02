@@ -3,4 +3,4 @@ User-agent: *
 Allow: /
 
 # Sitemap
-# Sitemap: [Add your sitemap URL here once the site is deployed]
+Sitemap: https://shagunbridal.com/sitemap.xml
