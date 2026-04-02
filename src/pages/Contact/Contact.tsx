@@ -74,9 +74,13 @@ const Contact: React.FC = () => {
       {/* Contact Info Cards */}
       <section className="section contact-info-section" ref={ref}>
         <div className="container">
-          <div className={`contact-info__grid ${inView ? 'animate-fade-in-up' : 'opacity-0'}`}>
+          <div className="contact-info__grid">
             {contactInfo.map((info, i) => (
-              <div className="contact-info__card glass-card" key={i}>
+              <div 
+                className={`contact-info__card glass-card ${inView ? 'animate-fade-in-up' : 'opacity-0'}`} 
+                key={i}
+                style={{ animationDelay: `${i * 0.15}s` }}
+              >
                 <div className="contact-info__icon">{info.icon}</div>
                 <h3 className="contact-info__title">{info.title}</h3>
                 <div className="contact-info__lines">
