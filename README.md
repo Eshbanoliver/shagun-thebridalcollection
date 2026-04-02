@@ -1,16 +1,78 @@
-# React + Vite
+# Premium Bridal Collection - Boutique Web Experience
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A high-end, modern boutique web application designed to showcase a luxury bridal collection with a "Liquid Luxury" aesthetic. This project transforms a traditional boutique experience into a dynamic, interactive, and visually stunning digital journey.
 
-Currently, two official plugins are available:
+## ✨ Key Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- **Liquid Luxury Aesthetic**: A premium design system based on glassmorphism, soft silk gradients, and champagne-to-rose color palettes.
+- **High-Performance Animations**: Smooth, physics-based entrance and interaction animations using optimized CSS hardware acceleration.
+- **Responsive Bubble Navigation**: An innovative "bubble style" mobile menu providing a focused, app-unlocked experience on smaller screens.
+- **Interactive Exhibits**: Modernized "Why Choose Us," "Services," and "Contact" sections with hover-triggered state changes and floating decorative elements.
+- **SEO Optimized**: Semantic HTML5 structure with proper heading hierarchies and meta-tag optimization for search engine visibility.
 
-## React Compiler
+## 🛠️ Tech Stack
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+### Core
+- **React 19**: Utilizing the latest React features for high-performance UI rendering.
+- **TypeScript 6**: Ensuring 100% type safety and robust developer experience.
+- **Vite 8**: Rapid development server and highly optimized production builds.
 
-## Expanding the ESLint configuration
+### UI & UX
+- **Modern CSS3**: Handcrafted design tokens using CSS Custom Properties (Variables) for a unified design system.
+- **Lucide React**: Clean, lightweight iconography for a professional aesthetic.
+- **React Router Dom 7**: Smooth client-side navigation with scroll restoration.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+### Development Tools
+- **ESLint**: Strict code linting for maintaining high code quality.
+- **Vite Plugin React**: For fast refresh and HMR during development.
+
+## 🚀 Scalability & Architecture
+
+This project is built with future growth in mind, adhering to modern software engineering principles:
+
+- **Component-Driven Architecture**: Every UI element is modular and encapsulated in the `src/components` directory, making the application easy to extend or refactor.
+- **Centralized Design System**: All colors, spacing, and glassmorphic tokens are defined in `src/index.css`. This allows for global theme adjustments or a complete brand overhaul within minutes.
+- **Type-Safe Development**: With TypeScript at its core, adding new features, APIs, or complex state management is safe and self-documenting.
+- **Optimized Build Process**: By leveraging Vite, the application is ready for advanced optimizations like code splitting and lazy loading of larger components.
+
+## 📦 Project Structure
+
+```bash
+shagun-bridal/
+├── public/              # Static assets (logos, high-res images)
+├── src/
+│   ├── components/      # Reusable UI building blocks (Navbar, Footer, etc.)
+│   ├── pages/           # Page-level components (Home, About, Contact, FAQ)
+│   ├── hooks/           # Custom React hooks (useInView, useScroll)
+│   ├── assets/          # Project images and global assets
+│   ├── App.tsx          # Main application routing
+│   ├── main.tsx         # Application entry point
+│   └── index.css        # Global CSS variables and base styles
+├── index.html           # Main HTML template with SEO meta tags
+└── tsconfig.json        # TypeScript configuration
+```
+
+## 🛠️ Installation & Setup
+
+1. **Clone the repository**:
+   ```bash
+   git clone [repository-url]
+   ```
+
+2. **Install dependencies**:
+   ```bash
+   npm install
+   ```
+
+3. **Start the development server**:
+   ```bash
+   npm run dev
+   ```
+
+4. **Build for production**:
+   ```bash
+   npm run build
+   ```
+
+---
+*Note: This project is private and focuses on delivering a high-end digital boutique experience.*
