@@ -109,7 +109,7 @@ const Navbar: React.FC = () => {
                 </div>
                 <div className="navbar-shagun__call-info">
                   <span className="navbar-shagun__call-label">CALL HELPLINE</span>
-                  <a href="tel:9950889370" className="navbar-shagun__call-number">+91 99508 89370</a>
+                  <a href="tel:9079757782" className="navbar-shagun__call-number">+91 90797 57782</a>
                 </div>
               </div>
             </div>

@@ -2,7 +2,7 @@ import React from 'react';
 import './FloatingButtons.css';
 
 const FloatingButtons: React.FC = () => {
-  const phoneNumber = '919950889370';
+  const phoneNumber = '919079757782';
   const whatsappMessage = encodeURIComponent('Hello! I am interested in your bridal collection. Please share more details.');
 
   return (
@@ -22,7 +22,7 @@ const FloatingButtons: React.FC = () => {
       </a>
 
       <a
-        href="tel:9950889370"
+        href="tel:9079757782"
         className="floating-btn floating-btn--call"
         aria-label="Call us"
         id="floating-call"

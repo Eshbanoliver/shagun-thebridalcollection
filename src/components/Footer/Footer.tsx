@@ -53,7 +53,7 @@ const Footer: React.FC = () => {
                     <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
                   </svg>
                 </a>
-                <a href="tel:9950889370" className="footer__social-link" aria-label="Call us">
+                <a href="tel:9079757782" className="footer__social-link" aria-label="Call us">
                   <Phone size={18} />
                 </a>
                 <a href="mailto:SHAGUNTHEBRIDALCOLLECTION@GMAIL.COM" className="footer__social-link" aria-label="Email us">
@@ -107,9 +107,9 @@ const Footer: React.FC = () => {
                 <div className="footer__contact-item">
                   <Phone size={16} className="flex-shrink-0 mt-1" />
                   <div>
-                    <a href="tel:9950889370">9950889370</a>
-                    <br />
                     <a href="tel:9079757782">9079757782</a>
+                    <br />
+                    <a href="tel:9950889370">9950889370</a>
                   </div>
                 </div>
                 <div className="footer__contact-item">
