@@ -128,7 +128,7 @@ const Footer: React.FC = () => {
       <div className="footer__bottom">
         <div className="container footer__bottom-inner">
           <p className="footer__copyright">
-            © {new Date().getFullYear()} | <strong>Shagun THE BRIDAL COLLECTION</strong> | All Rights Reserved
+            © {new Date().getFullYear()} | <Link to="/" className="footer__copyright-link"><strong>Shagun THE BRIDAL COLLECTION</strong></Link> | All Rights Reserved
           </p>
           <p className="footer__powered">
             Powered by{' '}
