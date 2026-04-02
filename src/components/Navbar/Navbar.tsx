@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { Mail, Clock, Phone } from 'lucide-react';
 import './Navbar.css';
 
@@ -7,6 +7,12 @@ const Navbar: React.FC = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileOpen, setIsMobileOpen] = useState(false);
   const location = useLocation();
+  const navigate = useNavigate();
+
+  const handleLinkClick = (path: string) => {
+    setIsMobileOpen(false);
+    navigate(path);
+  };
 
   useEffect(() => {
     const handleScroll = () => {
@@ -89,12 +95,13 @@ const Navbar: React.FC = () => {
                 <ul className="navbar-shagun__links">
                   {navLinks.map((link) => (
                     <li key={link.path}>
-                      <Link
-                        to={link.path}
+                      <button
+                        onClick={() => handleLinkClick(link.path)}
                         className={`navbar-shagun__link ${location.pathname === link.path ? 'navbar-shagun__link--active' : ''}`}
+                        style={{ background: 'none', border: 'none', width: '100%', textAlign: 'inherit', cursor: 'pointer' }}
                       >
                         {link.label}
-                      </Link>
+                      </button>
                     </li>
                   ))}
                 </ul>
