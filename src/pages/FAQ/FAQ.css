@@ -6,11 +6,11 @@
 /* Hero */
 .faq-hero {
   position: relative;
-  min-height: 50vh;
+  min-height: 65vh;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding-top: 80px;
+  padding-top: 100px;
 }
 
 .faq-hero__bg {
@@ -34,7 +34,7 @@
   position: relative;
   z-index: 2;
   text-align: center;
-  padding: 60px 0;
+  padding: 100px 0;
 }
 
 .faq-hero__badge {
