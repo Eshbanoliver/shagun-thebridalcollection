@@ -6,6 +6,14 @@
   opacity: 0;
 }
 
+@media (max-width: 1024px) {
+  .opacity-0 {
+    opacity: 1 !important;
+    transform: none !important;
+    animation: none !important;
+  }
+}
+
 /* ========================================
    HERO SECTION
    ======================================== */
@@ -1301,12 +1309,10 @@
   }
 
   .services-preview__grid,
-  .why-choose__masonry,
   .core-values__grid {
     grid-template-columns: 1fr;
-    column-count: 1;
     max-width: 500px;
-    margin: 0 auto;
+    margin: 0 auto 20px;
   }
 
   .core-values__item:nth-child(2),
@@ -1327,9 +1333,16 @@
     padding-top: 40px;
   }
 
+  .services-preview__card {
+    height: 350px !important;
+    margin-bottom: 0;
+    background: var(--charcoal);
+  }
+
   .services-preview__grid > :last-child {
-    grid-column: auto;
-    max-width: none;
+    grid-column: auto !important;
+    max-width: none !important;
+    margin: 0 !important;
   }
 
   .testimonials__card {
@@ -1349,9 +1362,7 @@
     margin-bottom: 24px;
   }
 
-  .services-preview__card {
-    height: 450px;
-  }
+  /* Removed duplicate card height definition */
   
   .services-preview__content {
     transform: translateY(0);
@@ -1369,7 +1380,11 @@
   .mission-vision__card.mission,
   .mission-vision__card.vision {
     width: 100%;
-    padding: 40px 30px;
+    padding: 30px 20px;
+  }
+
+  .mission-vision {
+    padding-top: 20px !important;
   }
 
   .mission-vision__card.mission {
@@ -1393,7 +1408,13 @@
   }
 
   .cta-section {
-    padding: 80px 0;
+    padding: 50px 0;
+  }
+
+  .services-preview__cta,
+  .faq-preview__cta {
+    margin-top: 20px;
+    margin-bottom: 10px;
   }
 }
 

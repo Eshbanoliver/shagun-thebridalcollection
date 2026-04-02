@@ -10,7 +10,14 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  padding-top: 100px;
+  padding-top: 80px;
+}
+
+@media (max-width: 480px) {
+  .about-hero {
+    min-height: 45vh;
+    padding-top: 60px;
+  }
 }
 
 .about-hero__bg {
@@ -111,6 +118,12 @@
   bottom: -80px;
   left: -80px;
   transform: rotate(-165deg);
+}
+
+@media (max-width: 768px) {
+  .about-story__ornament {
+    display: none;
+  }
 }
 
 .about-story {
@@ -795,7 +808,13 @@
 @media (max-width: 992px) {
   .experience-grid {
     grid-template-columns: 1fr;
-    gap: 50px;
+    gap: 30px;
+  }
+  .experience__middle-card {
+    margin: 0;
+  }
+  .experience__features {
+    padding-left: 0;
   }
   .experience__visuals {
     flex-direction: row;

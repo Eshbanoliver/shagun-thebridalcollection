@@ -10,7 +10,14 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  padding-top: 100px;
+  padding-top: 80px;
+}
+
+@media (max-width: 480px) {
+  .contact-hero {
+    min-height: 45vh;
+    padding-top: 60px;
+  }
 }
 
 .contact-hero__bg {
@@ -573,10 +580,11 @@
 @media (max-width: 1024px) {
   .contact-info__grid {
     grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
   }
   
   .contact-map {
-    max-width: 90%;
+    max-width: 95%;
   }
 }
 
@@ -586,7 +594,7 @@
   }
   
   .contact-info-section {
-    padding-bottom: 100px;
+    padding-bottom: 60px;
     margin-top: -30px;
     border-radius: 40px 40px 0 0;
   }

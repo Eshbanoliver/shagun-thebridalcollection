@@ -246,9 +246,9 @@ const ServicesPreview: React.FC = () => {
           title="Bridal Fashion & Beyond"
           description="Available for Rent & Sale — find the perfect ensemble for every celebration."
         />
-        <div className={`services-preview__grid ${inView ? 'animate-fade-in-up' : 'opacity-0'}`}>
+        <div className="services-preview__grid">
           {services.map((service, i) => (
-            <div className="services-preview__card" key={i} style={{ animationDelay: `${i * 0.15}s` }}>
+            <div className="services-preview__card" key={i}>
               <img src={service.image} alt={service.title} className="services-preview__img" loading="lazy" />
               <div className="services-preview__overlay"></div>
               
@@ -283,7 +283,7 @@ const MissionVision: React.FC = () => {
   const [ref, inView] = useInView();
   return (
     <section className="section section-gradient mission-vision" id="mission-vision" ref={ref}>
-      <div className={`container mission-vision__inner ${inView ? 'animate-fade-in-up' : 'opacity-0'}`}>
+      <div className="container mission-vision__inner">
         <SectionHeader
           subtitle="Purpose & Direction"
           title="Our Mission & Vision"
@@ -347,7 +347,7 @@ const CoreValues: React.FC = () => {
           title="Our Core Values"
           light
         />
-        <div className={`core-values__grid ${inView ? 'animate-fade-in-up' : 'opacity-0'}`}>
+        <div className="core-values__grid">
           {values.map((value, i) => (
             <div 
               className="core-values__item" 

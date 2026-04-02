@@ -10,7 +10,14 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  padding-top: 100px;
+  padding-top: 80px;
+}
+
+@media (max-width: 480px) {
+  .services-hero {
+    min-height: 45vh;
+    padding-top: 60px;
+  }
 }
 
 .services-hero__bg {
@@ -238,6 +245,12 @@
   bottom: -100px;
   left: -100px;
   transform: rotate(-165deg);
+}
+
+@media (max-width: 768px) {
+  .section-ornament {
+    display: none;
+  }
 }
 
 .collections-artistic-grid {
