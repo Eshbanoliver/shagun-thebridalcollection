@@ -419,7 +419,13 @@
   .navbar-shagun__nav--open .navbar-shagun__link:hover,
   .navbar-shagun__nav--open .navbar-shagun__link--active {
     color: var(--gold);
-    transform: scale(1.1);
+    background: rgba(212, 168, 83, 0.1);
+    transform: scale(1.05);
+  }
+
+  .navbar-shagun__nav--open .navbar-shagun__link {
+    padding: 12px 20px;
+    border-radius: 12px;
   }
 
   .navbar-shagun__nav--open .navbar-shagun__link--active::after {

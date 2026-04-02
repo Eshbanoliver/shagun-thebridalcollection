@@ -12,6 +12,7 @@ const Navbar: React.FC = () => {
   const handleLinkClick = (path: string) => {
     setIsMobileOpen(false);
     navigate(path);
+    window.scrollTo(0, 0);
   };
 
   useEffect(() => {
