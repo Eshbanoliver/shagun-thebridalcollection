@@ -242,8 +242,9 @@
 }
 
 .contact-info__email {
-  font-size: 0.78rem;
+  font-size: 1rem;
   word-break: break-all;
+  letter-spacing: 0.5px;
 }
 
 /* Contact Form */
