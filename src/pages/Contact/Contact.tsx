@@ -197,7 +197,6 @@ const Contact: React.FC = () => {
           <SectionHeader
             subtitle="Find Us"
             title="Visit Our Boutique"
-            light
           />
           <div className="contact-map">
             <iframe 

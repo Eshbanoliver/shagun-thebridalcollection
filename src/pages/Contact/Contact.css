@@ -407,15 +407,15 @@
   left: 120%;
 }
 
-/* Map Section Redesign */
+/* Map Section Redesign - Luxury Rose & Silk */
 .contact-map-section {
   padding: 120px 0;
-  background: radial-gradient(circle at 50% 50%, #1a1a1a 0%, #0d0d0d 100%);
+  background: linear-gradient(135deg, #FAF8FA 0%, #F5EFF4 100%);
   position: relative;
   overflow: hidden;
 }
 
-/* Luxury Glow Orbs */
+/* Luxury Glow Orbs - Light Mode */
 .contact-map-section::before {
   content: '';
   position: absolute;
@@ -423,7 +423,7 @@
   right: -5%;
   width: 500px;
   height: 500px;
-  background: radial-gradient(circle, rgba(212, 168, 83, 0.08) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(212, 168, 83, 0.15) 0%, transparent 70%);
   filter: blur(80px);
   z-index: 0;
   animation: floatOrb 15s infinite alternate ease-in-out;
@@ -436,7 +436,7 @@
   left: -5%;
   width: 600px;
   height: 600px;
-  background: radial-gradient(circle, rgba(252, 207, 247, 0.05) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(252, 207, 247, 0.2) 0%, transparent 70%);
   filter: blur(100px);
   z-index: 0;
   animation: floatOrb 20s infinite alternate-reverse ease-in-out;
@@ -460,7 +460,7 @@
   right: 0;
   font-size: 5rem;
   color: var(--gold);
-  opacity: 0.05;
+  opacity: 0.15;
   transform: rotate(20deg);
 }
 
@@ -471,7 +471,7 @@
   left: 10%;
   font-size: 8rem;
   color: var(--gold);
-  opacity: 0.03;
+  opacity: 0.08;
   transform: rotate(-15deg);
 }
 
@@ -479,9 +479,9 @@
 .contact-map {
   border-radius: 40px;
   overflow: hidden;
-  box-shadow: 0 50px 100px rgba(0, 0, 0, 0.6);
-  background: rgba(255, 255, 255, 0.02);
-  border: 1px solid rgba(212, 168, 83, 0.2);
+  box-shadow: 0 40px 100px rgba(212, 168, 83, 0.12);
+  background: var(--white);
+  border: 1px solid rgba(212, 168, 83, 0.25);
   position: relative;
 }
 
@@ -490,7 +490,7 @@
   position: absolute;
   inset: 0;
   border-radius: inherit;
-  box-shadow: inset 0 0 40px rgba(212, 168, 83, 0.05);
+  box-shadow: inset 0 0 20px rgba(252, 207, 247, 0.05);
   pointer-events: none;
 }
 
