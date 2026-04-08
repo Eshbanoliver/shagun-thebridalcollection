@@ -859,7 +859,7 @@
   background-attachment: fixed;
   color: var(--white);
   padding: 140px 0;
-  overflow: hidden;
+  overflow: visible;
   margin-bottom: 80px;
   position: relative;
 }
@@ -963,6 +963,19 @@
   text-transform: uppercase;
   font-weight: 600;
   margin-top: 4px;
+}
+
+@media (max-width: 768px) {
+  .heritage__floating-badge {
+    top: 10px;
+    right: 10px;
+    width: 100px;
+    height: 100px;
+    box-shadow: 0 5px 20px rgba(212, 168, 83, 0.4);
+  }
+  .heritage__floating-badge span {
+    font-size: 0.95rem;
+  }
 }
 
 .heritage-subtitle {
