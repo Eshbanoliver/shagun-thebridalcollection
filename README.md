@@ -34,6 +34,7 @@ This project is built with future growth in mind, adhering to modern software en
 - **Centralized Design System**: All colors, spacing, and glassmorphic tokens are defined in `src/index.css`. This allows for global theme adjustments or a complete brand overhaul within minutes.
 - **Type-Safe Development**: With TypeScript at its core, adding new features, APIs, or complex state management is safe and self-documenting.
 - **Optimized Build Process**: By leveraging Vite, the application is ready for advanced optimizations like code splitting and lazy loading of larger components.
+- **Custom Page Scalability**: The project is designed for growth. Future custom pages can be easily developed by leveraging the reusable patterns and architecture established in the **Services** page (`src/pages/Services`). This template-driven approach ensures design consistency while allowing for rapid expansion of the boutique's offerings.
 
 ## 📦 Project Structure
 

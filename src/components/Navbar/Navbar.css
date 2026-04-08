@@ -261,8 +261,13 @@
 }
 
 .navbar--scrolled .navbar-shagun {
-  transform: scale(0.98);
   border-radius: 4px;
+}
+
+@media (min-width: 961px) {
+  .navbar--scrolled .navbar-shagun {
+    transform: scale(0.98);
+  }
 }
 
 /* ========================================
@@ -314,8 +319,13 @@
   .navbar-shagun {
     background: linear-gradient(115deg, var(--white) 0%, var(--white) 50%, var(--cherry-red) 50%, var(--cherry-red) 100%);
     border-radius: var(--radius-md);
-    height: 90px !important; /* Force height to prevent collapsing */
+    height: 90px !important; 
     overflow: visible !important;
+  }
+
+  .navbar-main__outer,
+  .navbar--scrolled .navbar-main__outer {
+    height: 90px !important;
   }
 
   .navbar-shagun__brand-box {
