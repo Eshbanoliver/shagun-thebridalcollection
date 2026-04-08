@@ -1,6 +1,16 @@
+# Shagun The Bridal Collection - Robots.txt
 # https://www.robotstxt.org/robotstxt.html
+
 User-agent: *
 Allow: /
 
-# Sitemap
+# Disallow searching/filtering paths if they existed
+# Disallow: /api/
+# Disallow: /private/
+
+# Sitemap location
 Sitemap: https://shagunbridal.com/sitemap.xml
+
+# Block some aggressive AI crawlers (Optional, keeping allowed by default)
+# User-agent: GPTBot
+# Disallow: /
