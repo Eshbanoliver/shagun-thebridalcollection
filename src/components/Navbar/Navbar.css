@@ -12,6 +12,7 @@
 
 .container-wide {
   max-width: 1400px;
+  width: 100%;
   margin: 0 auto;
   padding: 0 40px;
 }
@@ -32,7 +33,6 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  width: 100%;
 }
 
 .navbar-top__left {
@@ -116,7 +116,7 @@
 /* Left Brand Zone - White Left Parallelogram */
 .navbar-shagun__brand-box {
   background: var(--white);
-  flex-basis: 320px;
+  flex-basis: 330px;
   padding: 0 40px;
   clip-path: polygon(0 0, 85% 0, 100% 100%, 0% 100%);
   position: relative;
@@ -126,7 +126,7 @@
 /* Right Call Zone - White Right Parallelogram */
 .navbar-shagun__call-box {
   background: var(--white);
-  flex-basis: 340px;
+  flex-basis: 330px;
   padding: 0 40px;
   clip-path: polygon(15% 0, 100% 0, 100% 100%, 0% 100%);
   position: relative;
