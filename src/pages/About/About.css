@@ -998,16 +998,20 @@
   gap: 25px;
   align-items: flex-start;
   padding: 30px;
-  border-bottom: 2px solid rgba(255, 255, 255, 0.05);
-  transition: all 0.4s ease;
-  border-radius: 12px;
+  border: 1px solid rgba(212, 168, 83, 0.2);
+  background: rgba(255, 255, 255, 0.02);
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  border-radius: 20px;
   cursor: default;
+  position: relative;
+  overflow: hidden;
 }
 
 .heritage__item:hover {
-  background: rgba(255, 255, 255, 0.03);
-  border-color: rgba(212, 168, 83, 0.2);
+  background: rgba(212, 168, 83, 0.05);
+  border-color: rgba(212, 168, 83, 0.6);
   transform: translateX(10px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2), inset 0 0 20px rgba(212, 168, 83, 0.05);
 }
 
 .heritage__item-dot {
