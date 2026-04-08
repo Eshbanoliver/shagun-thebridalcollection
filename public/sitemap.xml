@@ -1,29 +1,34 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <!-- Place your actual domain here once the site is deployed -->
+  <!-- Shagun The Bridal Collection Sitemap -->
   <url>
     <loc>https://shagunbridal.com/</loc>
-    <lastmod>2026-04-02</lastmod>
+    <lastmod>2026-04-08</lastmod>
     <priority>1.00</priority>
+    <changefreq>monthly</changefreq>
   </url>
   <url>
     <loc>https://shagunbridal.com/about</loc>
-    <lastmod>2026-04-02</lastmod>
+    <lastmod>2026-04-08</lastmod>
     <priority>0.80</priority>
+    <changefreq>monthly</changefreq>
   </url>
   <url>
     <loc>https://shagunbridal.com/services</loc>
-    <lastmod>2026-04-02</lastmod>
-    <priority>0.80</priority>
+    <lastmod>2026-04-08</lastmod>
+    <priority>0.90</priority>
+    <changefreq>weekly</changefreq>
   </url>
   <url>
     <loc>https://shagunbridal.com/faq</loc>
-    <lastmod>2026-04-02</lastmod>
-    <priority>0.70</priority>
+    <lastmod>2026-04-08</lastmod>
+    <priority>0.60</priority>
+    <changefreq>monthly</changefreq>
   </url>
   <url>
     <loc>https://shagunbridal.com/contact</loc>
-    <lastmod>2026-04-02</lastmod>
-    <priority>0.90</priority>
+    <lastmod>2026-04-08</lastmod>
+    <priority>0.80</priority>
+    <changefreq>yearly</changefreq>
   </url>
 </urlset>
